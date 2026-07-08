@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.reddit.com/r/snowflake/comments/ukp8nb/is_there_developer_pricing_for_snowflake",
+    "name": "Is there developer pricing for Snowflake? - Reddit",
+    "snippet": "it's $400.00 a month after the first 30 days. standard edition which is $2/credit. 2 parts is self service bi + developers. Snowflake pricing plan that offers unlimited and free access ... Snowflake free tier ? : r/dataengineering More results from www.reddit.com",
+    "host_name": "www.reddit.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.snowflake.com/en/pricing-options",
+    "name": "Snowflake Pricing | Choose the Right Edition for Your Data Needs",
+    "snippet": "We keep pricing simple with a consumption-based pricing model. Explore the details of our pricing model and how you can easily understand costs.",
+    "host_name": "www.snowflake.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+    "name": "Trial accounts - Snowflake Documentation",
+    "snippet": "A Snowflake trial account lets you evaluate/test Snowflake's full range of innovative and powerful features with no cost or contractual obligations.",
+    "host_name": "docs.snowflake.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://hoffa.medium.com/new-in-snowflake-marketplace-monetization-315aa90b86c",
+    "name": "Marketplace Monetization — Self service access to Premium datasets",
+    "snippet": "Snowflake customers can now instantly access premium datasets, while providers choose how to charge for them (like monthly or per query).",
+    "host_name": "hoffa.medium.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.flexera.com/blog/finops/ultimate-snowflake-cost-optimization-guide-reduce-snowflake-costs-pay-as-you-go-pricing-in-snowflake",
+    "name": "Snowflake pricing explained (2026): Cost calculator and  - Flexera",
+    "snippet": "Snowflake doesn't have a permanent free tier. It offers a ...",
+    "host_name": "www.flexera.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://select.dev/posts/snowflake-pricing",
+    "name": "Snowflake Pricing Explained | 2025 Billing Model Guide - SELECT.dev",
+    "snippet": "Does Snowflake offer a free plan or free trial? Yes, a free trial of Snowflake with $400 of free credits can be created here. What is the minimum billing fee ...",
+    "host_name": "select.dev",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developer.amazonservices.com/cancellation-of-sp-api-fees",
+    "name": "Cancellation of Third-Party Developer Selling Partner API (SP-API) Fees",
+    "snippet": "After careful consideration, we have decided that we will not move forward with the SP-API usage and annual fees at this time. Supporting your ability to ...",
+    "host_name": "developer.amazonservices.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://novadata.io/resources/news/amazon-sp-api-subscription-fees-2026",
+    "name": "Amazon SP-API fees cancelled - full chronology (2025-2026)",
+    "snippet": "Amazon has cancelled the SP-API usage and annual fees. On May 12, 2026, the Amazon Solutions Partner team emailed third-party developers ...",
+    "host_name": "novadata.io",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://sell.amazon.com/developers",
+    "name": "Selling Partner API (SP-API) - Sell on Amazon",
+    "snippet": "With Selling Partner API (SP-API), you can build automated solutions for your own sales in the Amazon store. Or you can create and list apps for other Amazon ...",
+    "host_name": "sell.amazon.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.linkedin.com/posts/malte-karstan_amazons-new-selling-partner-api-pricing-activity-7392292686621216768-B8xF",
+    "name": "Malte Karstan - Amazon's New Selling Partner API Pricing - LinkedIn",
+    "snippet": "- For developers and startups, the Basic Tier remains affordable - 2.5 million GET calls per month for free (beyond the $1,400 annual fee). - ...",
+    "host_name": "www.linkedin.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/amzn/selling-partner-api-models/discussions/3680",
+    "name": "Isn't the developer account free? · amzn selling-partner-api-models",
+    "snippet": "Yes, only Professional Selling Accounts can register to develop or integrate with Selling Partner API. Individual accounts are not eligible. You can upgrade ...",
+    "host_name": "github.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/aws/comments/qfhthn/does_the_new_selling_partner_api_have_associated",
+    "name": "Does the new Selling Partner API have associated AWS costs? - Reddit",
+    "snippet": "As far as I can tell, the SP-API does not have any costs associated with it. It needs an AWS account because it requires an IAM key to sign ...",
+    "host_name": "www.reddit.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

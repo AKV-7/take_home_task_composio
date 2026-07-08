@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://shopify.dev/docs/apps/build/storefront-mcp",
+    "name": "About Storefront MCP - Shopify Dev Docs",
+    "snippet": "The Model Context Protocol (MCP) standardizes how applications provide context to AI models. It creates a consistent way for AI systems to access Shopify's ...\nConnect any AI assistant to real-time commerce data from Shopify stores with Model Context Protocol (MCP) servers. Help customers search, ask, and buy in natural language. The Model Context Protocol (MCP) standardizes how applications provide context to AI models.",
+    "host_name": "shopify.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://shopify.engineering/mcp-ui-breaking-the-text-wall",
+    "name": "MCP UI: Breaking the text wall with interactive components (2025)",
+    "snippet": "MCP UI extends the Model Context Protocol to enable AI agents to return fully interactive UI components. It solves the critical challenge that ...",
+    "host_name": "shopify.engineering",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://no7software.co.uk/blog/shopify-mcp-server-implementation-guide",
+    "name": "Shopify MCP Server: Production Implementation Guide (2026)",
+    "snippet": "Shopify shipped Model Context Protocol (MCP) support across four separate MCP servers during Q1 2026 — Storefront, Customer Account, ...",
+    "host_name": "no7software.co.uk",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/siddhantbajaj/shopify-mcp-server",
+    "name": "siddhantbajaj/shopify-mcp-server - GitHub",
+    "snippet": "A Model Context Protocol (MCP) server to connect clients like Claude with Shopify store data. This server exposes tools for retrieving product and customer ...\nA Model Context Protocol (MCP) server to connect clients like Claude with Shopify store data. This server exposes tools for retrieving product and customer information from your Shopify store.",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=QmCzX_NvXAI",
+    "name": "Shopify MCP Server Integration Tutorial - YouTube",
+    "snippet": "Shopify MCP Server Integration Tutorial. @mapilitmedia15 ... Connect Custom Tools to Your Agent with MCP – Model Context Protocol Tutorial.",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.getpassionfruit.com/blog/shopify-model-context-protocol-(mcp)-explained-the-ai-ecommerce-revolution",
+    "name": "Shopify Model Context Protocol (MCP) for AI Ecommerce",
+    "snippet": "Shopify MCP represents a server implementation of the Model Context Protocol specifically designed to connect AI assistants with Shopify's e-commerce platform.",
+    "host_name": "www.getpassionfruit.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

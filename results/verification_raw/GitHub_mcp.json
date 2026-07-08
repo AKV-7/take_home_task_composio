@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://github.com/modelcontextprotocol/servers",
+    "name": "modelcontextprotocol/servers: Model Context Protocol  - GitHub",
+    "snippet": "This repository is a collection of reference implementations for the Model Context Protocol (MCP), as well as references to community built servers and ... Model Context Protocol Servers Sign in\nModel Context Protocol servers This repository is a collection of reference implementations for the Model Context Protocol (MCP), as well as references to community-built servers and additional resources.",
+    "host_name": "github.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/modelcontextprotocol",
+    "name": "Model Context Protocol - GitHub",
+    "snippet": "The Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools.\nThe Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. Whether you're building an AI-powered IDE, enhancing a chat interface, or creating custom AI workflows, MCP provides a standardized way to connect LLMs with the context they need.",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@EleventhHourEnthusiast/model-context-protocol-for-github-integration-0605ecf29f96",
+    "name": "Model Context Protocol for GitHub Integration - Medium",
+    "snippet": "An MCP server acts as an adapter between external APIs and AI clients. It exposes service capabilities as tools that clients can discover and ...",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/cyanheads/model-context-protocol-resources/blob/main/guides/mcp-server-development-guide.md",
+    "name": "Model Context Protocol (MCP) Server Development Guide - GitHub",
+    "snippet": "The Model Context Protocol (MCP) is an open standard designed to standardize how AI applications (clients/hosts) connect to and interact with external data ...",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol - Anthropic",
+    "snippet": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.",
+    "host_name": "www.anthropic.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.blog/changelog/2025-07-14-model-context-protocol-mcp-support-in-vs-code-is-generally-available",
+    "name": "Model Context Protocol (MCP) support in VS Code is generally",
+    "snippet": "MCP enables GitHub Copilot to access external tools and data sources, making your coding assistant more powerful and context-aware. Starting ...",
+    "host_name": "github.blog",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

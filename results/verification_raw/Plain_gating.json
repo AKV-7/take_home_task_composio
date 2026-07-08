@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://free-for.dev",
+    "name": "Free for Developers",
+    "snippet": "On our free tier, a developer (single user) can deploy unlimited static sites, web services, and environments. We provide 10 job executions free per month with ...",
+    "host_name": "free-for.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.larrymyers.com/posts/the-free-tier-trap",
+    "name": "The Free Tier Trap - Larry Myers",
+    "snippet": "More and more SaaS companies are offering generous free tiers. Many of these free offers are a bad deal for developers.",
+    "host_name": "www.larrymyers.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-tiers.html",
+    "name": "Tiers of service for Q Developer – Free and Pro",
+    "snippet": "The Free tier is available to users with personal accounts (Builder IDs), users with identities in IAM Identity Center, and users with IAM credentials. Consult ...",
+    "host_name": "docs.aws.amazon.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://business.daily.dev/resources/developer-tool-pricing-strategy-free-tier-enterprise-contracts",
+    "name": "Developer Tool Pricing Strategy: From Free Tier to Enterprise",
+    "snippet": "Guide to pricing developer tools: design free tiers, choose seat/usage/tier/hybrid models, and reprice transparently.",
+    "host_name": "business.daily.dev",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cloud.google.com/free",
+    "name": "Free Trial and Free Tier Services and Products - Google Cloud",
+    "snippet": "Start building on Google Cloud with $300 in free credits and free usage of 20+ products like Compute Engine and Cloud Storage, up to monthly limits.",
+    "host_name": "cloud.google.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://azure.microsoft.com/en-us/pricing/details/api-management",
+    "name": "API Management pricing - Microsoft Azure",
+    "snippet": "In the Developer tier, the self-hosted gateway feature is available at no additional cost. ... Developer tier deployments are free of charge. 2The first five ...",
+    "host_name": "azure.microsoft.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

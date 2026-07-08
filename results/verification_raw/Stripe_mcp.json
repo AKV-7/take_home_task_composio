@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.stripe.com/mcp",
+    "name": "Model Context Protocol (MCP) - Stripe Documentation",
+    "snippet": "Tools · Support for connected accounts",
+    "host_name": "docs.stripe.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/server/stripe-server",
+    "name": "Stripe Server: Secure Stripe Payments via MCP - MCP Market",
+    "snippet": "Stripe Server provides a secure Model Context Protocol (MCP) interface for Stripe payments, customer management, and refunds. Audit logging, error handling ...",
+    "host_name": "mcpmarket.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=rtGlC0-GuJw",
+    "name": "Multiple Ways to Use MCPs with Stripe - YouTube",
+    "snippet": "... MCP (Model Context Protocol) to supercharge your AI agents, automations, developer cycle and workflows. The Stripe MCP server exposes ...",
+    "host_name": "www.youtube.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@atharvagupta2003/creating-a-stripe-agent-using-model-context-protocol-mcp-3aa03af70530",
+    "name": "Creating a Stripe Agent using Model Context Protocol(MCP) - Medium",
+    "snippet": "The Stripe MCP Server enables AI-driven financial transactions, providing secure, automated integration with Stripe.",
+    "host_name": "medium.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lobehub.com/mcp/stripe-stripe-mcp",
+    "name": "Stripe Model Context Protocol | MCP Servers - LobeHub",
+    "snippet": "The Stripe Model Context Protocol server allows you to integrate with Stripe APIs through function calling. This protocol supports various tools ...",
+    "host_name": "lobehub.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lex.substack.com/p/ai-how-stripe-block-and-paypal-are",
+    "name": "AI: How Stripe, Block, and PayPal are using Model Context Protocol",
+    "snippet": "The MCP protocol provides all of its integrations through MCP “servers”, which can be set up by anyone around an API offering mapped to ...",
+    "host_name": "lex.substack.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

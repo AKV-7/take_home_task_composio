@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.slack.dev/authentication",
+    "name": "Authentication overview | Slack Developer Docs",
+    "snippet": "A secure, smooth authentication flow. Whether you're handling OAuth 2.0, verifying requests, or setting up Sign in with Slack, we've got you covered.",
+    "host_name": "docs.slack.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.slack.dev/authentication/installing-with-oauth",
+    "name": "Installing with OAuth | Slack Developer Docs",
+    "snippet": "OAuth allows a user in any Slack workspace to install your app. At the end of the OAuth flow, your app gains an access token.",
+    "host_name": "docs.slack.dev",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.n8n.io/integrations/builtin/credentials/slack",
+    "name": "Slack credentials | Nodes - n8n Docs",
+    "snippet": "Documentation for Slack credentials. Use these credentials to authenticate Slack in n8n, a workflow automation platform.",
+    "host_name": "docs.n8n.io",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://api.slack.com/apps",
+    "name": "Your Apps - Slack API",
+    "snippet": "You'll need to sign in to your Slack account to create an application. Don't see an app you're looking for? Sign in to another workspace.",
+    "host_name": "api.slack.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://composio.dev/auth/slack",
+    "name": "How to create OAuth2 credential for Slack - Composio",
+    "snippet": "Step 2: Configure OAuth & Permissions · Step 3: Add OAuth Scopes · Step 4: Get Your OAuth Credentials · Step 5: Fill in OAuth Details.",
+    "host_name": "composio.dev",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.unified.to/guides/how_to_register_a_slack_developer_account_and_get_oauth_2_credentials",
+    "name": "How to register a Slack developer account and get OAuth 2 credentials",
+    "snippet": "This guide walks you through how to register a Slack developer account, obtain OAuth 2 credentials, and configure scopes for your application.",
+    "host_name": "docs.unified.to",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

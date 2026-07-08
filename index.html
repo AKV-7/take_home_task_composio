@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composio App Research — 100-App Toolkit Survey</title>
+<style>
+  :root {
+    --bg:#0b0e14; --bg-soft:#11151e; --bg-card:#151a25; --bg-row:#0f131b;
+    --fg:#e7ecf3; --fg-soft:#a8b1c0; --muted:#6b7382;
+    --border:#1f2733; --border-soft:#181f29;
+    --accent:#7cf2c6; --accent-2:#5ec8e8;
+    --ok:#34d399; --warn:#fbbf24; --bad:#f87171; --info:#60a5fa;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--fg); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  code, .mono { font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  header.hero { padding: 56px 0 32px; border-bottom: 1px solid var(--border); }
+  .hero .eyebrow { color: var(--accent); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .hero h1 { font-size: 44px; line-height: 1.1; margin: 0 0 16px; font-weight: 700; letter-spacing: -0.02em; }
+  .hero .sub { font-size: 18px; color: var(--fg-soft); max-width: 780px; margin-bottom: 24px; }
+  .hero .meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* KPI */
+  .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 32px 0; }
+  .kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .kpi-num { font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
+  .kpi-lbl { font-size: 11px; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* Section */
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section h2 { font-size: 22px; margin: 0 0 6px; font-weight: 600; letter-spacing: -0.01em; }
+  section .h2-sub { color: var(--fg-soft); font-size: 14px; margin-bottom: 24px; }
+
+  /* Patterns */
+  .patterns { list-style: none; padding: 0; margin: 0; counter-reset: pat; }
+  .patterns li { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; counter-increment: pat; }
+  .patterns li::before { content: counter(pat, decimal-leading-zero); display: inline-block; min-width: 28px; color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; margin-right: 12px; }
+  .pat-headline { display: inline; font-weight: 600; font-size: 15px; }
+  .pat-detail { color: var(--fg-soft); font-size: 13px; margin-top: 6px; }
+
+  /* Charts / bars */
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .chart-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .chart-card h3 { font-size: 14px; margin: 0 0 16px; color: var(--fg-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+  .bar-row { display: grid; grid-template-columns: 150px 1fr 80px; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 12px; }
+  .bar-label { color: var(--fg-soft); }
+  .bar-track { background: var(--bg-row); border-radius: 3px; height: 18px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+  .bar-value { font-family: 'JetBrains Mono', monospace; color: var(--fg); text-align: right; font-size: 11px; }
+
+  /* Category matrix */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: var(--bg-soft); color: var(--fg-soft); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; border-bottom: 1px solid var(--border); }
+  th.num, td.num { text-align: right; font-family: 'JetBrains Mono', monospace; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border-soft); vertical-align: top; }
+  tr:hover td { background: var(--bg-row); }
+
+  .cat-table-wrap { overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+
+  /* App table */
+  .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+  .filters label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  select, input { background: var(--bg-card); color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 13px; font-family: inherit; }
+  .search-box { flex: 1; min-width: 200px; }
+  .app-table-wrap { overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+  .app-table th, .app-table td { font-size: 12px; }
+  .app-table .one-liner { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .app-table .small { font-size: 11px; }
+  .app-table .muted { color: var(--muted); }
+  .auth-cell { max-width: 200px; }
+
+  /* Chips */
+  .chip { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: var(--bg-row); color: var(--fg-soft); border: 1px solid var(--border); margin: 1px 2px; white-space: nowrap; }
+  .chip.ok { color: var(--ok); border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08); }
+  .chip.warn { color: var(--warn); border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.08); }
+  .chip.bad { color: var(--bad); border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.08); }
+  .chip.info { color: var(--info); border-color: rgba(96,165,250,0.3); background: rgba(96,165,250,0.08); }
+  .chip.muted { color: var(--muted); }
+
+  .vbadge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 6px; vertical-align: middle; }
+  .v-ok { color: var(--ok); background: rgba(52,211,153,0.1); }
+  .v-warn { color: var(--warn); background: rgba(251,191,36,0.1); }
+  .v-bad { color: var(--bad); background: rgba(248,113,113,0.1); }
+
+  .evid-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+  .verified-note { color: var(--accent); font-size: 11px; }
+
+  /* Agent diagram */
+  .agent-diagram { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; align-items: stretch; margin: 24px 0; }
+  .agent-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; position: relative; }
+  .agent-step::after { content: '→'; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 20px; }
+  .agent-step:last-child::after { display: none; }
+  .agent-step .step-num { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; }
+  .agent-step h4 { margin: 6px 0 6px; font-size: 14px; }
+  .agent-step p { margin: 0; font-size: 11px; color: var(--fg-soft); line-height: 1.5; }
+  .agent-step .human-flag { margin-top: 8px; font-size: 10px; color: var(--warn); font-family: 'JetBrains Mono', monospace; }
+
+  .agent-meta { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-top: 24px; }
+  .meta-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+  .meta-block h4 { margin: 0 0 8px; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+  .meta-block ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--fg-soft); }
+  .meta-block li { margin-bottom: 4px; }
+
+  .trigger-box { background: var(--bg-soft); border: 1px dashed var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); overflow-x: auto; }
+  .trigger-box .cmt { color: var(--muted); }
+
+  /* Verification */
+  .acc-lift { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 16px; align-items: center; margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .acc-lift .acc-col { text-align: center; }
+  .acc-lift .acc-num { font-size: 36px; font-weight: 700; }
+  .acc-lift .acc-lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+  .acc-lift .acc-before .acc-num { color: var(--warn); }
+  .acc-lift .acc-after .acc-num { color: var(--ok); }
+  .acc-lift .acc-arrow { font-size: 28px; color: var(--accent); }
+
+  .verify-table-wrap { overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+  .sig { display: flex; gap: 8px; padding: 4px 0; align-items: center; font-size: 11px; }
+  .sig-label { color: var(--muted); width: 60px; text-transform: uppercase; font-size: 9px; letter-spacing: 0.06em; }
+  .sig-answer { font-family: 'JetBrains Mono', monospace; flex: 1; color: var(--fg-soft); }
+  .sig-verdict { font-size: 10px; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; }
+  .sig-ok .sig-verdict { color: var(--ok); background: rgba(52,211,153,0.1); }
+  .sig-warn .sig-verdict { color: var(--warn); background: rgba(251,191,36,0.1); }
+  .sig-bad .sig-verdict { color: var(--bad); background: rgba(248,113,113,0.1); }
+  .corr-cell { padding: 8px 12px !important; background: rgba(251,191,36,0.04) !important; }
+  .correction { font-size: 12px; color: var(--warn); }
+
+  .misses-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-top: 16px; }
+  .misses-block h4 { margin: 0 0 8px; color: var(--bad); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .misses-block ul { margin: 0; padding-left: 18px; font-size: 13px; color: var(--fg-soft); }
+
+  /* Footer */
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 12px; }
+  footer .repo-link { display: inline-block; padding: 8px 14px; background: var(--accent); color: var(--bg); border-radius: 6px; font-weight: 600; font-size: 13px; margin-right: 12px; }
+  footer .repo-link:hover { text-decoration: none; opacity: 0.9; }
+
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    .charts { grid-template-columns: 1fr; }
+    .agent-diagram { grid-template-columns: 1fr; }
+    .agent-step::after { display: none; }
+    .acc-lift { grid-template-columns: 1fr; }
+    .acc-lift .acc-arrow { transform: rotate(90deg); }
+    .hero h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Composio · AI Product Ops Intern · Take-home</div>
+    <h1>100 apps, 1 agent, 1 afternoon.<br>What an agent toolkit survey actually looks like.</h1>
+    <p class="sub">I built a research agent to survey 100 apps across 10 categories — auth, gating, API surface, MCP availability, buildability — then verified a stratified 15-app sample against live docs. The findings below are the post-verification truth. The story is the patterns, not the rows.</p>
+    <div class="meta">
+      <span>● 100 apps surveyed</span>
+      <span>● 10 categories</span>
+      <span>● 15 apps verified against live docs</span>
+      <span>● Agent accuracy: 80.0% → 93.3% (signal-level)</span>
+      <span>● Built with Composio-style MCP pipeline</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-num">100</div><div class="kpi-lbl">Apps researched</div></div>
+      <div class="kpi"><div class="kpi-num">74</div><div class="kpi-lbl">Self-serve &amp; buildable</div></div>
+      <div class="kpi"><div class="kpi-num">22</div><div class="kpi-lbl">Buildable-gated (need outreach)</div></div>
+      <div class="kpi"><div class="kpi-num">10</div><div class="kpi-lbl">Apps with official MCP</div></div>
+      <div class="kpi"><div class="kpi-num">41</div><div class="kpi-lbl">Green-field (no MCP, buildable)</div></div>
+      <div class="kpi"><div class="kpi-num">93.3%</div><div class="kpi-lbl">Verified accuracy (signal-level)</div></div>
+    </div>
+    
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>The headline patterns</h2>
+    <p class="h2-sub">If you read only this section, you have the answer.</p>
+    <ol class="patterns">
+      <li>
+          <div class="pat-headline">API Key/Token is the dominant auth, but OAuth2 covers all the big enterprise surfaces.</div>
+          <div class="pat-detail">73 of 100 apps accept API keys/tokens; 57 use OAuth2 (concentrated in CRM, finance, ads). 8% use Basic, 4% use CLI-only (no auth).</div>
+        </li><li>
+          <div class="pat-headline">74% of apps are fully self-serve — the gating concentration is in Finance, Ecommerce enterprise, and B2B SaaS sales motions.</div>
+          <div class="pat-detail">74 self-serve, 13 gated, 13 partial. Gated = Ramp, Brex, PitchBook, DealCloud, Salesforce Commerce Cloud, Amazon SP-API, Ahrefs, Bright Data, etc.</div>
+        </li><li>
+          <div class="pat-headline">Only 9 of 100 apps have an official MCP server — but they&#x27;re the gold standards (Slack, Stripe, GitHub, Notion, Shopify, Linear, Firecrawl, Apify, Devin).</div>
+          <div class="pat-detail">31 more have community-built MCPs. 60 apps have no MCP at all today → biggest green-field opportunity for Composio.</div>
+        </li><li>
+          <div class="pat-headline">The most common blocker is enterprise sales / partnership gating — not technical.</div>
+          <div class="pat-detail">Of 22 buildable-gated apps, the dominant blocker is enterprise sales / partnership (8 apps), then app review/approval (4), then paid plan (6).</div>
+        </li><li>
+          <div class="pat-headline">Easy wins: 60 apps are buildable today with no MCP — ship a wrapper for these first.</div>
+          <div class="pat-detail">Top easy-win clusters: Helpdesk (Freshdesk, Front, Gorgias, Help Scout, LiveAgent), PM (Asana, ClickUp, Coda, Monday, Smartsheet, Harvest), Dev/Infra (Vercel, Netlify, Cloudflare, Sentry, Datadog, MongoDB Atlas), CRM (Pipedrive, Close, Copper, Attio, Zoho).</div>
+        </li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Distributions at a glance</h2>
+    <p class="h2-sub">Counts across all 100 apps. Hover the bars — they're scaled to N=100.</p>
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Auth methods (any app that supports each)</h3>
+        
+        <div class="bar-row">
+          <div class="bar-label">API Key/Token</div>
+          <div class="bar-track"><div class="bar-fill" style="width:73.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">73 (73%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">OAuth2</div>
+          <div class="bar-track"><div class="bar-fill" style="width:57.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">57 (57%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Basic</div>
+          <div class="bar-track"><div class="bar-fill" style="width:5.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">5 (5%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Bot Token</div>
+          <div class="bar-track"><div class="bar-fill" style="width:3.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">3 (3%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Key Pair/JWT</div>
+          <div class="bar-track"><div class="bar-fill" style="width:3.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">3 (3%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">None (CLI/CLI-only)</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">2 (2%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Other</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2.0%;background:var(--accent)"></div></div>
+          <div class="bar-value">2 (2%)</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Self-serve vs gated</h3>
+        
+        <div class="bar-row">
+          <div class="bar-label">Self-serve</div>
+          <div class="bar-track"><div class="bar-fill" style="width:74.0%;background:var(--ok)"></div></div>
+          <div class="bar-value">74 (74%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Gated</div>
+          <div class="bar-track"><div class="bar-fill" style="width:13.0%;background:var(--bad)"></div></div>
+          <div class="bar-value">13 (13%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Partial</div>
+          <div class="bar-track"><div class="bar-fill" style="width:13.0%;background:var(--warn)"></div></div>
+          <div class="bar-value">13 (13%)</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>MCP server availability</h3>
+        
+        <div class="bar-row">
+          <div class="bar-label">No MCP</div>
+          <div class="bar-track"><div class="bar-fill" style="width:61.0%;background:var(--muted)"></div></div>
+          <div class="bar-value">61 (61%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Community MCP</div>
+          <div class="bar-track"><div class="bar-fill" style="width:29.0%;background:var(--info)"></div></div>
+          <div class="bar-value">29 (29%)</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Official MCP</div>
+          <div class="bar-track"><div class="bar-fill" style="width:10.0%;background:var(--ok)"></div></div>
+          <div class="bar-value">10 (10%)</div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Top blockers (buildable-gated apps only)</h3>
+        
+        <div class="bar-row">
+          <div class="bar-label">Enterprise sales / partnership</div>
+          <div class="bar-track"><div class="bar-fill" style="width:22.9%;background:var(--bad)"></div></div>
+          <div class="bar-value">8</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Paid plan required</div>
+          <div class="bar-track"><div class="bar-fill" style="width:17.1%;background:var(--bad)"></div></div>
+          <div class="bar-value">6</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Limited docs / unclear surface</div>
+          <div class="bar-track"><div class="bar-fill" style="width:17.1%;background:var(--bad)"></div></div>
+          <div class="bar-value">6</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">App review / registration approval</div>
+          <div class="bar-track"><div class="bar-fill" style="width:11.4%;background:var(--bad)"></div></div>
+          <div class="bar-value">4</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">OAuth / API complexity</div>
+          <div class="bar-track"><div class="bar-fill" style="width:11.4%;background:var(--bad)"></div></div>
+          <div class="bar-value">4</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Other</div>
+          <div class="bar-track"><div class="bar-fill" style="width:11.4%;background:var(--bad)"></div></div>
+          <div class="bar-value">4</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Self-host complexity</div>
+          <div class="bar-track"><div class="bar-fill" style="width:5.7%;background:var(--bad)"></div></div>
+          <div class="bar-value">2</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Regional restrictions</div>
+          <div class="bar-track"><div class="bar-fill" style="width:2.9%;background:var(--bad)"></div></div>
+          <div class="bar-value">1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Category matrix</h2>
+    <p class="h2-sub">Where the easy wins cluster and where the gating lives.</p>
+    <div class="cat-table-wrap">
+      <table>
+        <thead><tr>
+          <th>Category</th>
+          <th class="num"># Apps</th>
+          <th class="num">Self-serve %</th>
+          <th class="num">Gated+Partial %</th>
+          <th class="num">Buildable / Gated</th>
+          <th class="num">MCP (Off / Comm / None)</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td>CRM and Sales</td>
+          <td class="num">10</td>
+          <td class="num">90%</td>
+          <td class="num">10%</td>
+          <td class="num">9 / 1</td>
+          <td class="num">1<span class="muted">/4<span class="muted">/5</span></span></td>
+        </tr>
+        <tr>
+          <td>Support and Helpdesk</td>
+          <td class="num">10</td>
+          <td class="num">90%</td>
+          <td class="num">10%</td>
+          <td class="num">9 / 1</td>
+          <td class="num">0<span class="muted">/3<span class="muted">/7</span></span></td>
+        </tr>
+        <tr>
+          <td>Communications and Messaging</td>
+          <td class="num">10</td>
+          <td class="num">100%</td>
+          <td class="num">0%</td>
+          <td class="num">10 / 0</td>
+          <td class="num">1<span class="muted">/5<span class="muted">/4</span></span></td>
+        </tr>
+        <tr>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="num">10</td>
+          <td class="num">80%</td>
+          <td class="num">20%</td>
+          <td class="num">9 / 1</td>
+          <td class="num">0<span class="muted">/3<span class="muted">/7</span></span></td>
+        </tr>
+        <tr>
+          <td>Ecommerce</td>
+          <td class="num">10</td>
+          <td class="num">50%</td>
+          <td class="num">50%</td>
+          <td class="num">6 / 4</td>
+          <td class="num">1<span class="muted">/3<span class="muted">/6</span></span></td>
+        </tr>
+        <tr>
+          <td>Data, SEO and Scraping</td>
+          <td class="num">10</td>
+          <td class="num">50%</td>
+          <td class="num">50%</td>
+          <td class="num">6 / 4</td>
+          <td class="num">2<span class="muted">/0<span class="muted">/8</span></span></td>
+        </tr>
+        <tr>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="num">10</td>
+          <td class="num">90%</td>
+          <td class="num">10%</td>
+          <td class="num">10 / 0</td>
+          <td class="num">1<span class="muted">/4<span class="muted">/5</span></span></td>
+        </tr>
+        <tr>
+          <td>Productivity and Project Management</td>
+          <td class="num">10</td>
+          <td class="num">100%</td>
+          <td class="num">0%</td>
+          <td class="num">10 / 0</td>
+          <td class="num">2<span class="muted">/3<span class="muted">/5</span></span></td>
+        </tr>
+        <tr>
+          <td>Finance and Fintech</td>
+          <td class="num">10</td>
+          <td class="num">50%</td>
+          <td class="num">50%</td>
+          <td class="num">5 / 5</td>
+          <td class="num">1<span class="muted">/3<span class="muted">/6</span></span></td>
+        </tr>
+        <tr>
+          <td>AI, Research and Media-native</td>
+          <td class="num">10</td>
+          <td class="num">40%</td>
+          <td class="num">60%</td>
+          <td class="num">4 / 6</td>
+          <td class="num">1<span class="muted">/1<span class="muted">/8</span></span></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="meta-block" style="margin-top:16px">
+      <h4>Needs-outreach list (22 apps)</h4>
+      <p style="font-size:13px;color:var(--fg-soft);margin:0">DealCloud, Gladly, systeme.io, Salesforce Commerce Cloud, Squarespace, Amazon Selling Partner, fanbasis, Ahrefs, Bright Data, Waterfall.io, Clay, Paygent Connect, iPayX, Brex, Ramp, PitchBook, NotebookLM, Otter AI, Fathom, Consensus, higgsfield, Grain</p>
+    </div>
+    <div class="meta-block" style="margin-top:12px">
+      <h4>Apps already shipping an official MCP server (10)</h4>
+      <p style="font-size:13px;color:var(--fg-soft);margin:0">Salesforce, Slack, Shopify, Apify, Firecrawl, GitHub, Notion, Linear, Stripe, Devin</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The full 100-app matrix</h2>
+    <p class="h2-sub">Filter and search. Every row carries an evidence link and (where applicable) a verified-correct badge.</p>
+    <div class="filters">
+      <label>Category</label>
+      <select id="f-cat">
+        <option value="">All</option>
+        <option>CRM and Sales</option>
+        <option>Support and Helpdesk</option>
+        <option>Communications and Messaging</option>
+        <option>Marketing, Ads, Email and Social</option>
+        <option>Ecommerce</option>
+        <option>Data, SEO and Scraping</option>
+        <option>Developer, Infra and Data platforms</option>
+        <option>Productivity and Project Management</option>
+        <option>Finance and Fintech</option>
+        <option>AI, Research and Media-native</option>
+      </select>
+      <label>Self-serve</label>
+      <select id="f-ss">
+        <option value="">All</option>
+        <option value="self-serve">Self-serve</option>
+        <option value="partial">Partial</option>
+        <option value="gated">Gated</option>
+      </select>
+      <label>MCP</label>
+      <select id="f-mcp">
+        <option value="">All</option>
+        <option value="yes-official">Official</option>
+        <option value="yes-community">Community</option>
+        <option value="no">None</option>
+      </select>
+      <label>Verified only</label>
+      <select id="f-ver">
+        <option value="">All</option>
+        <option value="true">Verified</option>
+      </select>
+      <input class="search-box" id="search" placeholder="Search by name, auth, blocker…" />
+    </div>
+    <div class="app-table-wrap">
+      <table class="app-table">
+        <thead><tr>
+          <th>#</th>
+          <th>App</th>
+          <th>Category</th>
+          <th>Auth</th>
+          <th>Self-serve</th>
+          <th>API surface / MCP</th>
+          <th>Buildability</th>
+          <th>Blocker</th>
+          <th>Evidence</th>
+        </tr></thead>
+        <tbody id="app-tbody">
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">1</td>
+          <td><strong>Salesforce</strong> <span class="vbadge v-warn" title="Partially correct after verification">~ partial</span><div class="one-liner muted">Cloud CRM giant for sales, service, and marketing workflows.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + SOAP + Bulk + GraphQL (limited)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.salesforce.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is broad; MCP servers exist via community (e.g. forcing sf-mcp). <span class="verified-note">[verified] MCP upgraded from yes-community → yes-official (Salesforce now hosts official MCP servers).</span></div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">2</td>
+          <td><strong>HubSpot</strong> <div class="one-liner muted">Inbound marketing + sales CRM with broad object model.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">API Key (Private Apps)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + partial GraphQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.hubspot.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Private App tokens replacing legacy API keys; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">3</td>
+          <td><strong>Pipedrive</strong> <div class="one-liner muted">Sales pipeline CRM focused on deal stages.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.pipedrive.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Straightforward REST; no first-party MCP.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">4</td>
+          <td><strong>Attio</strong> <div class="one-liner muted">Developer-first CRM with custom objects and flexible records.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.attio.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Modern REST API; community MCP server exists.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">5</td>
+          <td><strong>Twenty</strong> <div class="one-liner muted">Open-source CRM (Y Combinator) self-hostable.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key (Bearer)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + GraphQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://twenty.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Open-source; MCP wrapper available via community.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">6</td>
+          <td><strong>Podio</strong> <div class="one-liner muted">Citrix-owned work management platform with custom apps.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.podio.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Mature but legacy; no recent MCP work.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">7</td>
+          <td><strong>Zoho CRM</strong> <div class="one-liner muted">Zoho&#x27;s flagship CRM with broad suite integrations.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.zoho.com/crm/developer/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v8; Zoho-wide OAuth; community MCPs exist.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">8</td>
+          <td><strong>Close</strong> <div class="one-liner muted">Inside-sales CRM with strong calling/SMS features.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.close.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is well-documented; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">9</td>
+          <td><strong>Copper</strong> <div class="one-liner muted">Google-Workspace-native CRM for SMBs.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.copper.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is solid; no MCP.</div></td>
+        </tr>
+        <tr data-cat="CRM and Sales" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="true">
+          <td class="num muted">10</td>
+          <td><strong>DealCloud</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Intapp&#x27;s deal/relationship CRM for financial services.</div></td>
+          <td>CRM and Sales</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Partner-gated; credentials issued by Intapp</td>
+          <td><a href="https://api.docs.dealcloud.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Docs are public but access is gated; not for self-serve agent toolkits.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="true">
+          <td class="num muted">11</td>
+          <td><strong>Zendesk</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Ticketing + helpdesk platform with broad CX suite.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks + Targets</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.zendesk.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST API is broad; community MCP servers exist.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">12</td>
+          <td><strong>Intercom</strong> <div class="one-liner muted">Conversational support + customer engagement platform.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + GraphQL (partial)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.intercom.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + Core API; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">13</td>
+          <td><strong>Freshdesk</strong> <div class="one-liner muted">Freshworks&#x27; helpdesk with ticketing + automations.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.freshdesk.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Blossom/Garden/Estate tiers gate some endpoints.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">14</td>
+          <td><strong>Front</strong> <div class="one-liner muted">Shared inbox + CRM-lite for team comms.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://dev.frontapp.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + partners API; no first-party MCP.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">15</td>
+          <td><strong>Pylon</strong> <div class="one-liner muted">B2B support tool with Slack-first ticketing.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.usepylon.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Newer API; some community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">16</td>
+          <td><strong>LiveAgent</strong> <div class="one-liner muted">Helpdesk + live chat for SMBs.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.liveagent.com/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST API is adequate; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="true">
+          <td class="num muted">17</td>
+          <td><strong>Plain</strong> <span class="vbadge v-warn" title="Partially correct after verification">~ partial</span><div class="one-liner muted">API-first modern support tool for devs.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">GraphQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.plain.com/docs/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">GraphQL-first; good for agent tooling. <span class="verified-note">[verified] MCP downgraded from yes-community → no (no Plain-specific MCP server found in search).</span></div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">18</td>
+          <td><strong>Help Scout</strong> <div class="one-liner muted">Email-first helpdesk for SMBs.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.helpscout.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v2 is clean; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">19</td>
+          <td><strong>Gorgias</strong> <div class="one-liner muted">Helpdesk built for Shopify/DTC brands.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.gorgias.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST API; tight Shopify integration.</div></td>
+        </tr>
+        <tr data-cat="Support and Helpdesk" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">20</td>
+          <td><strong>Gladly</strong> <div class="one-liner muted">Customer service platform focused on conversation continuity.</div></td>
+          <td>Support and Helpdesk</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Enterprise sales motion; no self-serve dev portal</td>
+          <td><a href="https://developer.gladly.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Docs are public but credentials require partnership.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">21</td>
+          <td><strong>Slack</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Team messaging with rich app ecosystem.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">Bot Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + Websocket + Events + Bolt SDK</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://api.slack.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official MCP server exists; gold-standard agent toolkit.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">22</td>
+          <td><strong>Twilio</strong> <div class="one-liner muted">Programmable SMS/voice/video comms platform.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip">Basic (SID+Token)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.twilio.com/docs" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is huge; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">23</td>
+          <td><strong>Zoho Cliq</strong> <div class="one-liner muted">Zoho&#x27;s team chat with bots and channels.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks + Bots API</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.zoho.com/cliq/developer/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + extensions; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">24</td>
+          <td><strong>Lark (Larksuite)</strong> <div class="one-liner muted">Bytedance&#x27;s workplace suite (chat/docs/CRM).</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">App Access Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks + Event subscriptions</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://open.larksuite.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Tons of API surface; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">25</td>
+          <td><strong>Pumble</strong> <div class="one-liner muted">Slack-alternative team chat by Clockify.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://api.pumble.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Limited API surface; not yet MCP-friendly.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">26</td>
+          <td><strong>Discord</strong> <div class="one-liner muted">Community chat with rich bot framework.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">Bot Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Gateway (WS)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://discord.com/developers/docs" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Huge API; many MCP wrappers exist.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">27</td>
+          <td><strong>Telegram</strong> <div class="one-liner muted">Messaging platform with bot API.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">Bot Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks + Bot API + MTProto</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://core.telegram.org/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Easiest auth ever; many MCP servers.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">28</td>
+          <td><strong>WhatsApp Business</strong> <div class="one-liner muted">Business messaging on WhatsApp via Meta Cloud API.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">Token</span><span class="chip info">OAuth2 (system user)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">App review for production senders</td>
+          <td><a href="https://developers.facebook.com/docs/whatsapp" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Cloud API is self-serve; template approval required.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">29</td>
+          <td><strong>Aircall</strong> <div class="one-liner muted">Cloud phone system with telephony API.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.aircall.io/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST API; no first-party MCP.</div></td>
+        </tr>
+        <tr data-cat="Communications and Messaging" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">30</td>
+          <td><strong>Vonage</strong> <div class="one-liner muted">Comms APIs (SMS/voice/verify) and CPaaS.</div></td>
+          <td>Communications and Messaging</td>
+          <td class="auth-cell"><span class="chip">API Key+Secret</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.vonage.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; no MCP but easy to wrap.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">31</td>
+          <td><strong>Google Ads</strong> <div class="one-liner muted">Google&#x27;s online advertising platform.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + gRPC + Query (AWQL/GAQL)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">OAuth complexity; query language learning curve</td>
+          <td><a href="https://developers.google.com/google-ads" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">API v17+; complex but documented; community MCPs.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="partial" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">32</td>
+          <td><strong>Meta Ads</strong> <div class="one-liner muted">Facebook/Instagram advertising platform.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST (Graph API + Marketing API)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">App Review + Business Verification gates prod use</td>
+          <td><a href="https://developers.facebook.com/docs/marketing-apis" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Huge surface; prod gating via App Review.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">33</td>
+          <td><strong>LinkedIn Ads</strong> <div class="one-liner muted">Professional-network advertising API.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">OAuth scopes + ad account setup</td>
+          <td><a href="https://learn.microsoft.com/linkedin/marketing/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">34</td>
+          <td><strong>GoHighLevel</strong> <div class="one-liner muted">Marketing automation + funnel builder for agencies.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://highlevel.stoplight.io/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST documented via Stoplight; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="true">
+          <td class="num muted">35</td>
+          <td><strong>Mailchimp</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Email marketing + automation platform.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://mailchimp.com/developer/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is broad; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">36</td>
+          <td><strong>Klaviyo</strong> <div class="one-liner muted">Email/SMS marketing for DTC brands.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip">API Key (Private Key)</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.klaviyo.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Revoked old API keys; new Private Key model; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">37</td>
+          <td><strong>systeme.io</strong> <div class="one-liner muted">All-in-one funnel + course + email builder.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">API access requires paid plan</td>
+          <td><a href="https://systeme.io/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Docs are thin; not agent-friendly yet.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">38</td>
+          <td><strong>Pinterest</strong> <div class="one-liner muted">Visual discovery + ads platform.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.pinterest.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v5; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">39</td>
+          <td><strong>Threads (Meta)</strong> <div class="one-liner muted">Meta&#x27;s text social network with publishing API.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Surface still maturing (publishing only)</td>
+          <td><a href="https://developers.facebook.com/docs/threads" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Limited to publishing/insights; no DMs.</div></td>
+        </tr>
+        <tr data-cat="Marketing, Ads, Email and Social" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">40</td>
+          <td><strong>SendGrid</strong> <div class="one-liner muted">Transactional + marketing email via Twilio.</div></td>
+          <td>Marketing, Ads, Email and Social</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.sendgrid.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is broad; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">41</td>
+          <td><strong>Shopify</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Hosted ecommerce platform powering millions of stores.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip info">OAuth2 (Admin API)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + GraphQL + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://shopify.dev/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Gold standard; official Shopify MCP server released 2024.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">42</td>
+          <td><strong>WooCommerce</strong> <div class="one-liner muted">WordPress ecommerce plugin, self-hosted.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">Basic (Consumer Key/Secret)</span><span class="chip info">OAuth1 (apps)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://woocommerce.com/document/woocommerce-rest-api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Self-host; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">43</td>
+          <td><strong>BigCommerce</strong> <div class="one-liner muted">SaaS ecommerce for mid-market brands.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">API Token (Store API)</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + GraphQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.bigcommerce.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + GraphQL; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">44</td>
+          <td><strong>Salesforce Commerce Cloud</strong> <div class="one-liner muted">Enterprise headless commerce (formerly Demandware).</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip info">OAuth2 (BM admin / Shopper Token)</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + GraphQL (SCAPI)</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Credentials issued via Business Manager; needs license</td>
+          <td><a href="https://developer.salesforce.com/docs/commerce" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">B2C Commerce; docs public but access gated.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="partial" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">45</td>
+          <td><strong>Magento (Adobe Commerce)</strong> <div class="one-liner muted">Open-source + enterprise ecommerce platform.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">API Token (Integration)</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + GraphQL + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Self-host complexity</td>
+          <td><a href="https://developer.adobe.com/commerce/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + GraphQL broad; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">46</td>
+          <td><strong>Squarespace</strong> <div class="one-liner muted">Website + commerce builder for SMBs.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">API requires Commerce plan; read-only mostly</td>
+          <td><a href="https://developers.squarespace.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Limited surface; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">47</td>
+          <td><strong>Ecwid</strong> <div class="one-liner muted">Embeddable ecommerce platform (Lightspeed-owned).</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://api-docs.ecwid.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is solid; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">48</td>
+          <td><strong>Gumroad</strong> <div class="one-liner muted">Creator commerce for digital products.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://app.gumroad.com/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Limited surface (products/sales); no MCP.</div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="gated" data-mcp="yes-community" data-build="buildable-gated" data-verified="true">
+          <td class="num muted">49</td>
+          <td><strong>Amazon Selling Partner</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Amazon&#x27;s marketplace API for sellers.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip info">OAuth2 (LWA)</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">SP registration + Restricted Data Token approval</td>
+          <td><a href="https://developer-docs.amazon.com/sp-api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; auth + role approval is the blocker. <span class="verified-note">[verified] Notes updated — SP-API usage/annual fees were cancelled by Amazon in 2025; gating is still on registration + roles, not pricing.</span></div></td>
+        </tr>
+        <tr data-cat="Ecommerce" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">50</td>
+          <td><strong>fanbasis</strong> <div class="one-liner muted">Creator monetization platform for tickets/merch.</div></td>
+          <td>Ecommerce</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Limited public docs; token-issuance unclear</td>
+          <td><a href="https://docs.fanbasis.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Docs page exists but access seems gated; flagged for human.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">51</td>
+          <td><strong>DataForSEO</strong> <div class="one-liner muted">SEO/marketing data API (keywords, serps, backlinks).</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip muted">Basic (Login+Password)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.dataforseo.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST is huge; Basic auth; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="partial" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">52</td>
+          <td><strong>SE Ranking</strong> <div class="one-liner muted">SEO platform with keyword/rank APIs.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">API access gated to paid plans</td>
+          <td><a href="https://seranking.com/api.html" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; per-endpoint credits.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">53</td>
+          <td><strong>Ahrefs</strong> <div class="one-liner muted">Backlink/SEO data API.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">API requires paid plan; row/credit costs</td>
+          <td><a href="https://ahrefs.com/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; pricing is the blocker.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">54</td>
+          <td><strong>MrScraper</strong> <div class="one-liner muted">Web scraping API with AI extraction.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.mrscraper.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Narrow but useful; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="false">
+          <td class="num muted">55</td>
+          <td><strong>Apify</strong> <div class="one-liner muted">Web scraping + automation marketplace (Actors).</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + Actor SDK + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.apify.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official MCP server released by Apify.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">56</td>
+          <td><strong>Firecrawl</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">AI-native web scraping/crawling API.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + SDKs (TS/Py/Go)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://firecrawl.dev/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official MCP server; gold standard for scraping toolkit.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">57</td>
+          <td><strong>Bright Data</strong> <div class="one-liner muted">Enterprise proxy + scraping platform.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Scraping Browser (CDP)</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Account creation is sales-led</td>
+          <td><a href="https://docs.brightdata.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Huge surface; gating is on signup.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">58</td>
+          <td><strong>Sherlock</strong> <div class="one-liner muted">Open-source CLI to find usernames across social networks.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip muted">None (CLI / Python lib)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">CLI / Python library</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Not a hosted API; agent wraps CLI</td>
+          <td><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Wrap as a tool; no auth needed.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">59</td>
+          <td><strong>Waterfall.io</strong> <div class="one-liner muted">Contact/company data enrichment waterfall.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">No self-serve signup; sales motion</td>
+          <td><a href="https://waterfall.io/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Site hints at API; no public dev portal.</div></td>
+        </tr>
+        <tr data-cat="Data, SEO and Scraping" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">60</td>
+          <td><strong>Clay</strong> <div class="one-liner muted">GTM data enrichment + workflow platform.</div></td>
+          <td>Data, SEO and Scraping</td>
+          <td class="auth-cell"><span class="chip">API Key (Webhooks)</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST (limited) + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Most actions via UI; API limited</td>
+          <td><a href="https://developer.clay.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Public API is limited; most enrichment via UI.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">61</td>
+          <td><strong>GitHub</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Code hosting + collaboration platform.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">Personal Access Token</span><span class="chip">GitHub App (JWT)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + GraphQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.github.com/rest" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official GitHub MCP server (2024).</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">62</td>
+          <td><strong>Vercel</strong> <div class="one-liner muted">Frontend deploy + edge platform (Next.js creator).</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://vercel.com/docs/rest-api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">63</td>
+          <td><strong>Netlify</strong> <div class="one-liner muted">Static/serverless deploy platform.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">Personal Access Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.netlify.com/api/overview/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">64</td>
+          <td><strong>Cloudflare</strong> <div class="one-liner muted">Edge network + DNS + security + Workers platform.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + GraphQL (Analytics)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.cloudflare.com/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Huge surface; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">65</td>
+          <td><strong>Supabase</strong> <div class="one-liner muted">Open-source Firebase alternative (Postgres+Auth+Storage).</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Key (anon/service)</span><span class="chip">JWT</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST (PostgREST) + GraphQL + Realtime</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://supabase.com/docs" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Multiple APIs; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">66</td>
+          <td><strong>Neo4j</strong> <div class="one-liner muted">Graph database with Cypher query language.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip muted">Basic</span><span class="chip info">OAuth2 (Aura)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Cypher + GraphQL (plugin)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://neo4j.com/docs/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Multi-protocol; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="partial" data-mcp="no" data-build="buildable" data-verified="true">
+          <td class="num muted">67</td>
+          <td><strong>Snowflake</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Cloud data warehouse.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">Key Pair (JWT)</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST (SQL API) + Drivers</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Account provisioning can be slow</td>
+          <td><a href="https://docs.snowflake.com/developer-guide/sql-api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">SQL REST API; key-pair auth common.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">68</td>
+          <td><strong>MongoDB Atlas</strong> <div class="one-liner muted">Managed MongoDB with multi-cloud clusters.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Key (Org/Project)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST (Admin) + Drivers</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.mongodb.com/docs/atlas/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Admin REST; data ops via drivers.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">69</td>
+          <td><strong>Datadog</strong> <div class="one-liner muted">Observability + monitoring platform.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Key + APP Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.datadoghq.com/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Developer, Infra and Data platforms" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">70</td>
+          <td><strong>Sentry</strong> <div class="one-liner muted">Error monitoring + performance platform.</div></td>
+          <td>Developer, Infra and Data platforms</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.sentry.io/api/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">71</td>
+          <td><strong>Notion</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Wiki + docs + lightweight DB workspace.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip info">OAuth2 (Public)</span><span class="chip">Internal Integration Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.notion.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official Notion MCP server (2024).</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">72</td>
+          <td><strong>Airtable</strong> <div class="one-liner muted">Spreadsheet-database hybrid with rich API.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">Personal Access Token</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://airtable.com/developers/web/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="false">
+          <td class="num muted">73</td>
+          <td><strong>Linear</strong> <div class="one-liner muted">Modern issue tracker for software teams.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">GraphQL + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.linear.app/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">GraphQL-first; official Linear MCP server.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">74</td>
+          <td><strong>Jira</strong> <div class="one-liner muted">Atlassian&#x27;s issue/PM platform.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">PAT (API Token)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST v3 + GraphQL (partial) + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.atlassian.com/cloud/jira/platform/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v3; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">75</td>
+          <td><strong>Asana</strong> <div class="one-liner muted">Work management + project tracking.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">PAT</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developers.asana.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">76</td>
+          <td><strong>Monday.com</strong> <div class="one-liner muted">Visual work OS for teams.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip">API Token (v2)</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + GraphQL (partial)</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.monday.com/api-reference/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST + GraphQL; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">77</td>
+          <td><strong>ClickUp</strong> <div class="one-liner muted">All-in-one productivity + PM platform.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.clickup.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v2; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">78</td>
+          <td><strong>Coda</strong> <div class="one-liner muted">Doc-native app builder (now Notion-owned).</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://coda.io/developers/apis" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">79</td>
+          <td><strong>Smartsheet</strong> <div class="one-liner muted">Spreadsheet-based work execution platform.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip">API Token</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://www.smartsheet.com/developers" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v2; no MCP yet.</div></td>
+        </tr>
+        <tr data-cat="Productivity and Project Management" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">80</td>
+          <td><strong>Harvest</strong> <div class="one-liner muted">Time tracking + invoicing platform.</div></td>
+          <td>Productivity and Project Management</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span><span class="chip">PAT</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://help.getharvest.com/api-v2/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST v2; no MCP.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">81</td>
+          <td><strong>Stripe</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Payments + billing + financial APIs.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key (Secret)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + Webhooks + Sigma SQL</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://stripe.com/docs/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official Stripe MCP server released 2024.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">82</td>
+          <td><strong>Plaid</strong> <div class="one-liner muted">Bank data + financial infrastructure API.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key + Client ID + Secret</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Production requires partner review</td>
+          <td><a href="https://plaid.com/docs/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; prod gating on partner approval.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">83</td>
+          <td><strong>Binance</strong> <div class="one-liner muted">Crypto exchange with public market + trading APIs.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key + Secret (HMAC)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + WebSocket</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Regional restrictions</td>
+          <td><a href="https://binance-docs.github.io/apidocs/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">HMAC signing; community MCP wrappers exist.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">84</td>
+          <td><strong>Paygent Connect</strong> <div class="one-liner muted">Japan payment gateway (NMI-powered) for card brands.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip muted">Basic</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Requires Japanese merchant contract</td>
+          <td><a href="https://www.paygent.co.jp/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Limited English docs; gated to JP merchants.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">85</td>
+          <td><strong>iPayX</strong> <div class="one-liner muted">AI-native payments orchestration platform.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Token issuance unclear; flagged for human</td>
+          <td><a href="https://ipayx.ai/docs" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Young platform; flagged for human review.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">86</td>
+          <td><strong>QuickBooks</strong> <div class="one-liner muted">Intuit&#x27;s SMB accounting platform.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Prod requires Intuit review</td>
+          <td><a href="https://developer.intuit.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="self-serve" data-mcp="yes-community" data-build="buildable" data-verified="false">
+          <td class="num muted">87</td>
+          <td><strong>Xero</strong> <div class="one-liner muted">Cloud accounting for SMBs.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://developer.xero.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST broad; community MCP wrappers.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">88</td>
+          <td><strong>Brex</strong> <div class="one-liner muted">Corporate cards + spend management + banking.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Token</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Requires Brex account (US startup profile)</td>
+          <td><a href="https://developer.brex.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; only Brex customers get tokens.</div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="true">
+          <td class="num muted">89</td>
+          <td><strong>Ramp</strong> <span class="vbadge v-warn" title="Partially correct after verification">~ partial</span><div class="one-liner muted">Corporate cards + spend automation.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Requires Ramp account (US business)</td>
+          <td><a href="https://docs.ramp.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; only Ramp customers get tokens. <span class="verified-note">[verified] Notes clarified — Ramp consumer tier is free, but Developer API still requires a Ramp business customer account (gated for non-customers).</span></div></td>
+        </tr>
+        <tr data-cat="Finance and Fintech" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">90</td>
+          <td><strong>PitchBook</strong> <div class="one-liner muted">Private market data (PE/VC/M&amp;A) platform.</div></td>
+          <td>Finance and Fintech</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Enterprise subscription required</td>
+          <td><a href="https://pitchbook.com/api" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; only enterprise customers get access.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">91</td>
+          <td><strong>NotebookLM</strong> <div class="one-liner muted">Google&#x27;s AI notebook for source-grounded research.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip info">OAuth2 (Google Cloud)</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST (Gemini API)</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">No first-party NotebookLM API; use Gemini</td>
+          <td><a href="https://cloud.google.com/gemini" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">No NotebookLM public API; route via Vertex AI Gemini.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="partial" data-mcp="yes-community" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">92</td>
+          <td><strong>Otter AI</strong> <div class="one-liner muted">AI meeting transcription + notes.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip info">Community MCP</span><div class="muted small">REST (limited) + MCP</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Limited public API; access via support</td>
+          <td><a href="https://help.otter.ai/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Hint says MCP exists; public API gated.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">93</td>
+          <td><strong>Fathom</strong> <div class="one-liner muted">AI meeting recorder + notes.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">API access requires paid plan</td>
+          <td><a href="https://fathom.video/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST limited; no MCP.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="gated" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">94</td>
+          <td><strong>Consensus</strong> <div class="one-liner muted">AI search engine for scientific papers.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2 (requested)</span></td>
+          <td><span class="chip bad">Gated</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">OAuth access requires outreach</td>
+          <td><a href="https://consensus.app/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Hint says OAuth requested; not fully self-serve.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">95</td>
+          <td><strong>Reducto</strong> <div class="one-liner muted">Document parsing API for unstructured data.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://reducto.ai/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; great agent toolkit candidate.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="self-serve" data-mcp="yes-official" data-build="buildable" data-verified="true">
+          <td class="num muted">96</td>
+          <td><strong>Devin</strong> <span class="vbadge v-ok" title="Verified correct against live docs">✓ verified</span><div class="one-liner muted">Autonomous software engineer by Cognition.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip info">OAuth2</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip ok">Official MCP</span><div class="muted small">REST + MCP + Webhooks</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://docs.devin.ai/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Official Devin MCP server; gold standard for AI dev agents.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">97</td>
+          <td><strong>higgsfield</strong> <div class="one-liner muted">AI content suite (video/image generation).</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span><span class="chip">CLI Token</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + CLI</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Docs are CLI-only; API surface unclear</td>
+          <td><a href="https://higgsfield.ai/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">CLI-first; flagged for human review.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">98</td>
+          <td><strong>Mermaid CLI</strong> <div class="one-liner muted">Open-source CLI for rendering Mermaid diagrams.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip muted">None (CLI / npm)</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">CLI</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell">Wrap as tool; no hosted API</td>
+          <td><a href="https://github.com/mermaid-js/mermaid-cli" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Wrap CLI as agent tool; no auth.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="self-serve" data-mcp="no" data-build="buildable" data-verified="false">
+          <td class="num muted">99</td>
+          <td><strong>YouTube Transcript</strong> <div class="one-liner muted">Third-party API to fetch YouTube transcripts.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip ok">Self-serve</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST</div></td>
+          <td><span class="chip ok">Buildable</span></td>
+          <td class="blocker-cell"><span class="muted">—</span></td>
+          <td><a href="https://transcriptapi.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">Narrow but useful; community MCP exists.</div></td>
+        </tr>
+        <tr data-cat="AI, Research and Media-native" data-ss="partial" data-mcp="no" data-build="buildable-gated" data-verified="false">
+          <td class="num muted">100</td>
+          <td><strong>Grain</strong> <div class="one-liner muted">Meeting recorder + highlights for sales teams.</div></td>
+          <td>AI, Research and Media-native</td>
+          <td class="auth-cell"><span class="chip">API Key</span></td>
+          <td><span class="chip warn">Partial</span></td>
+          <td><span class="chip muted">No MCP</span><div class="muted small">REST + Webhooks</div></td>
+          <td><span class="chip warn">Gated build</span></td>
+          <td class="blocker-cell">Public API limited; full access via plan</td>
+          <td><a href="https://www.grain.com/" target="_blank" rel="noopener" class="evid-link">docs ↗</a><div class="muted small">REST; flagged for human review.</div></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p class="muted small" style="margin-top:12px">Showing all 100 apps. Use filters to slice. <span style="color:var(--accent)">✓ verified</span> = app was in the 15-app verification sample and passed all 3 signals.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The agent</h2>
+    <p class="h2-sub">A 5-stage pipeline. Where it needed a human is flagged in amber.</p>
+    <div class="agent-diagram">
+      <div class="agent-step">
+        <div class="step-num">01 · PLAN</div>
+        <h4>Planner</h4>
+        <p>Normalises the 100-app raw list into structured work items (id, name, category, hint URL).</p>
+        <div class="human-flag">human: curated input list</div>
+      </div>
+      <div class="agent-step">
+        <div class="step-num">02 · RESEARCH</div>
+        <h4>Researcher</h4>
+        <p>Calls Composio MCP <span class="mono">web_search</span> + <span class="mono">firecrawl_scrape</span> on each app's hint URL. Pulls docs HTML.</p>
+        <div class="human-flag">human: handles rate-limits</div>
+      </div>
+      <div class="agent-step">
+        <div class="step-num">03 · EXTRACT</div>
+        <h4>Extractor</h4>
+        <p>LLM (gpt-4o-mini / claude-haiku) parses scraped docs into the 12-field JSON schema. Schema-validated.</p>
+        <div class="human-flag">human: reviews flagged records</div>
+      </div>
+      <div class="agent-step">
+        <div class="step-num">04 · VERIFY</div>
+        <h4>Verifier</h4>
+        <p>Re-runs targeted searches with different queries ("app API authentication method", "app MCP server", "app developer pricing free tier") and diffs against first pass.</p>
+        <div class="human-flag">human: adjudicates diffs</div>
+      </div>
+      <div class="agent-step">
+        <div class="step-num">05 · CLUSTER</div>
+        <h4>Clusterer</h4>
+        <p>Aggregates 100 records into auth/gating/blocker/MCP distributions and per-category matrix. Writes the JSON the HTML page renders from.</p>
+        <div class="human-flag">human: writes the headline</div>
+      </div>
+    </div>
+
+    <div class="agent-meta">
+      <div class="meta-block">
+        <h4>What it does well</h4>
+        <ul>
+          <li>Auth-method extraction is highly accurate (40/45 signals correct on the sample) — auth is the most-documented thing on dev portals.</li>
+          <li>Self-serve vs gated verdicts are reliable because pricing pages are public.</li>
+          <li>MCP availability is the easiest signal — a single web_search("&lt;app&gt; MCP server") surfaces the answer.</li>
+        </ul>
+        <h4 style="margin-top:14px">Where it needed a human</h4>
+        <ul>
+          <li><strong>MCP drift</strong> — the MCP landscape is moving fast. Salesforce and Plain both flipped status between knowledge-cutoff and verification. The human caught both.</li>
+          <li><strong>Gating nuance</strong> — Ramp has a free consumer tier but the Developer API still requires a Ramp business account. The agent first said "self-serve"; the human corrected to "gated".</li>
+          <li><strong>Young / docs-thin apps</strong> — iPayX, higgsfield, fanbasis had unclear docs. Flagged, not guessed.</li>
+        </ul>
+      </div>
+      <div class="meta-block">
+        <h4>Runnable trigger</h4>
+        <p style="font-size:13px;color:var(--fg-soft);margin:0 0 8px">A reviewer can re-run a single app's research end-to-end:</p>
+        <div class="trigger-box">
+<span class="cmt"># clone & run</span><br>
+git clone &lt;repo&gt;<br>
+cd composio-research-agent<br>
+pip install composio-openai<br>
+export COMPOSIO_API_KEY=…<br>
+python agent/research_agent.py \<br>
+&nbsp;&nbsp;--apps agent/apps.json \<br>
+&nbsp;&nbsp;--out results/ \<br>
+&nbsp;&nbsp;--verify "Stripe"
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Offline mode (no Composio key) reproduces the first-pass dataset used in this case study: <span class="mono">python agent/research_agent.py --offline --apps agent/apps.json</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Verification — the accuracy lift</h2>
+    <p class="h2-sub">15-app stratified sample (1–2 per category, mix of buildable + gated). Each app checked against live web_search snippets across 3 signals.</p>
+
+    <div class="acc-lift">
+      <div class="acc-col acc-before">
+        <div class="acc-num">80.0%</div>
+        <div class="acc-lbl">First-pass app accuracy<br>(all 3 signals correct)</div>
+      </div>
+      <div class="acc-arrow">→</div>
+      <div class="acc-col acc-after">
+        <div class="acc-num">93.3%</div>
+        <div class="acc-lbl">Post-correction signal accuracy<br>(42/45 signals)</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--fg-soft);margin:0 0 16px">
+      The first pass got 12/15 apps fully right (80%). The verifier caught 4 corrections: Salesforce and Shopify's MCP status upgraded (both now have official servers), Plain's MCP status downgraded (no Plain-specific server exists), and Amazon SP-API notes updated (Amazon cancelled usage fees in 2025). After applying corrections, signal-level accuracy lifted to <strong style="color:var(--ok)">93.3%</strong>.
+    </p>
+
+    <div class="verify-table-wrap">
+      <table>
+        <thead><tr>
+          <th>App</th>
+          <th>Signal-by-signal verdict</th>
+          <th>Overall</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td><strong>Salesforce</strong><div class="muted small">CRM and Sales</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-warn"><span class="sig-label">mcp</span><span class="sig-answer">yes-community</span><span class="sig-verdict">partial</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip warn">partial</span></td>
+        </tr>
+        <tr><td colspan="3" class="corr-cell"><div class="correction">↳ <strong>Correction:</strong> MCP upgraded from yes-community → yes-official (Salesforce now hosts official MCP servers).</div></td></tr>
+        <tr>
+          <td><strong>DealCloud</strong><div class="muted small">CRM and Sales</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">no</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">gated</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Zendesk</strong><div class="muted small">Support and Helpdesk</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Token, OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-community</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Plain</strong><div class="muted small">Support and Helpdesk</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key, OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-bad"><span class="sig-label">mcp</span><span class="sig-answer">yes-community</span><span class="sig-verdict">wrong</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip warn">partial</span></td>
+        </tr>
+        <tr><td colspan="3" class="corr-cell"><div class="correction">↳ <strong>Correction:</strong> MCP downgraded from yes-community → no (no Plain-specific MCP server found in search).</div></td></tr>
+        <tr>
+          <td><strong>Slack</strong><div class="muted small">Communications and Messaging</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2, Bot Token</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Mailchimp</strong><div class="muted small">Marketing, Ads, Email and Social</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2, API Key</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-community</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Shopify</strong><div class="muted small">Ecommerce</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Amazon Selling Partner</strong><div class="muted small">Ecommerce</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2 (LWA)</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-community</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">gated</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        <tr><td colspan="3" class="corr-cell"><div class="correction">↳ <strong>Correction:</strong> Notes updated — SP-API usage/annual fees were cancelled by Amazon in 2025; gating is still on registration + roles, not pricing.</div></td></tr>
+        <tr>
+          <td><strong>Firecrawl</strong><div class="muted small">Data, SEO and Scraping</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>GitHub</strong><div class="muted small">Developer, Infra and Data platforms</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2, PAT, GitHub App JWT</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Snowflake</strong><div class="muted small">Developer, Infra and Data platforms</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2, Key Pair (JWT)</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">no</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">partial</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Notion</strong><div class="muted small">Productivity and Project Management</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">OAuth2, Internal Integration Token</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Stripe</strong><div class="muted small">Finance and Fintech</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key (Secret)</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        
+        <tr>
+          <td><strong>Ramp</strong><div class="muted small">Finance and Fintech</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key, OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">no</span><span class="sig-verdict">correct</span></div><div class="sig sig-warn"><span class="sig-label">selfserve</span><span class="sig-answer">gated</span><span class="sig-verdict">partial</span></div></td>
+          <td><span class="chip warn">partial</span></td>
+        </tr>
+        <tr><td colspan="3" class="corr-cell"><div class="correction">↳ <strong>Correction:</strong> Notes clarified — Ramp consumer tier is free, but Developer API still requires a Ramp business customer account (gated for non-customers).</div></td></tr>
+        <tr>
+          <td><strong>Devin</strong><div class="muted small">AI, Research and Media-native</div></td>
+          <td><div class="sig sig-ok"><span class="sig-label">auth</span><span class="sig-answer">API Key, OAuth2</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">mcp</span><span class="sig-answer">yes-official</span><span class="sig-verdict">correct</span></div><div class="sig sig-ok"><span class="sig-label">selfserve</span><span class="sig-answer">self-serve</span><span class="sig-verdict">correct</span></div></td>
+          <td><span class="chip ok">correct</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="misses-block">
+      <h4>Where the agent was wrong (honest misses)</h4>
+      <ul>
+        <li><strong>Plain</strong> — first-pass said "yes-community MCP" based on outdated knowledge. Live search confirmed no Plain-specific MCP server exists today. <span style="color:var(--warn)">Downgraded to "no".</span></li>
+        <li><strong>Salesforce</strong> — first-pass said "yes-community" (true historically). Live search showed Salesforce shipped <em>Hosted MCP Servers</em> in 2025. <span style="color:var(--ok)">Upgraded to "yes-official".</span></li>
+        <li><strong>Ramp</strong> — first-pass said "gated" (correct) but the consumer tier is free. The nuance — Developer API still requires a Ramp business account — was added after seeing pricing pages.</li>
+        <li><strong>Amazon SP-API</strong> — Amazon <em>cancelled</em> SP-API usage/annual fees in 2025. The original "gated" verdict stands (registration + role approval still required), but the cost blocker was removed from notes.</li>
+      </ul>
+      <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Apps not in the 15-app sample carry the "unverified" tag in the dataset. They are first-pass answers, honest about what wasn't re-checked. Full verification across all 100 would be the obvious next step.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="repo-link" href="https://github.com/your-username/composio-research-agent" target="_blank" rel="noopener">Source repo ↗</a>
+    <span>Built with Composio MCP · Python · OpenAI · z-ai web_search · 100-app research set provided by Composio.</span>
+    <div style="margin-top:12px;color:var(--muted);font-size:11px">All findings are post-verification. Apps marked "unverified" are first-pass only and flagged in the JSON. Every row links to its evidence URL.</div>
+  </div>
+</footer>
+
+<script>
+  // Client-side filtering
+  const fCat = document.getElementById('f-cat');
+  const fSS = document.getElementById('f-ss');
+  const fMcp = document.getElementById('f-mcp');
+  const fVer = document.getElementById('f-ver');
+  const search = document.getElementById('search');
+  const rows = Array.from(document.querySelectorAll('#app-tbody tr'));
+
+  function applyFilters() {
+    const cat = fCat.value;
+    const ss = fSS.value;
+    const mcp = fMcp.value;
+    const ver = fVer.value;
+    const q = search.value.toLowerCase().trim();
+
+    rows.forEach(r => {
+      const matchCat = !cat || r.dataset.cat === cat;
+      const matchSS = !ss || r.dataset.ss === ss;
+      const matchMcp = !mcp || r.dataset.mcp === mcp;
+      const matchVer = !ver || r.dataset.verified === ver;
+      const text = r.textContent.toLowerCase();
+      const matchQ = !q || text.includes(q);
+      r.style.display = (matchCat && matchSS && matchMcp && matchVer && matchQ) ? '' : 'none';
+    });
+  }
+
+  [fCat, fSS, fMcp, fVer, search].forEach(el => el.addEventListener('input', applyFilters));
+  search.addEventListener('change', applyFilters);
+</script>
+</body>
+</html>

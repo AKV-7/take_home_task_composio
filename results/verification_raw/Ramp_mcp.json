@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://builders.ramp.com/post/ramp-mcp",
+    "name": "Building Ramp's MCP server",
+    "snippet": "Our open-source ramp-mcp server can access a business context using a variety of tools, and enable natural language access to your Ramp data. It ...",
+    "host_name": "builders.ramp.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.zenml.io/llmops-database/mcp-server-for-natural-language-business-data-analytics",
+    "name": "MCP Server for Natural Language Business Data Analytics - ZenML",
+    "snippet": "Ramp built an open-source Model Context Protocol (MCP) server that enables natural language interaction with business financial data by ...",
+    "host_name": "www.zenml.io",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "name": "What is the Model Context Protocol (MCP)? - Model Context Protocol",
+    "snippet": "MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Using MCP, AI applications like Claude or ...",
+    "host_name": "modelcontextprotocol.io",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/ramp-public/ramp_mcp",
+    "name": "ramp-public/ramp_mcp - GitHub",
+    "snippet": "A Model Context Protocol server for retrieving and analyzing data or running tasks for Ramp using Developer API. In order to get around token and input size ...",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://langdb.ai/app/mcp-servers/ramp-mcp-server-5a83c158-6e7c-47b7-83f3-3bcdcc87fc8b",
+    "name": "Ramp MCP Server - LangDB",
+    "snippet": "Model Context Protocol server enabling persistent storage, retrieval, search, and management of text memories with tagging support, using local ...",
+    "host_name": "langdb.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol - Anthropic",
+    "snippet": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.",
+    "host_name": "www.anthropic.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

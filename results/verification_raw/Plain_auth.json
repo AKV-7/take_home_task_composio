@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developers.google.com/identity/protocols/oauth2",
+    "name": "Using OAuth 2.0 to Access Google APIs | Authorization",
+    "snippet": "Basic steps · 1. Obtain OAuth 2.0 credentials from the Google API Console. · 2. Obtain an access token from the Google Authorization Server. · 3.",
+    "host_name": "developers.google.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://oauth.net/2",
+    "name": "OAuth 2.0",
+    "snippet": "OAuth 2.0 is the industry-standard protocol for authorization. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows.",
+    "host_name": "oauth.net",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.x.com/fundamentals/authentication/oauth-2-0/user-access-token",
+    "name": "OAuth 2.0 Authorization Code Flow with PKCE - X Developer Platform",
+    "snippet": "Step-by-step guide to connecting users to X API v2 endpoints with OAuth 2.0 Authorization Code Flow with PKCE, including authorize URLs and token exchange.",
+    "host_name": "docs.x.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://auth0.com/intro-to-iam/what-is-oauth-2",
+    "name": "What is OAuth 2.0? Definition & Examples - Auth0",
+    "snippet": "OAuth 2.0 is an authorization protocol and NOT an authentication protocol. As such, it is designed primarily as a means of granting access to a set of resources ...",
+    "host_name": "auth0.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stackoverflow.blog/2022/12/22/the-complete-guide-to-protecting-your-apis-with-oauth2",
+    "name": "The complete guide to protecting your APIs with OAuth2 (part 1)",
+    "snippet": "OAuth is one of many solutions you can use to protect your APIs and other resources. It allows users to securely delegate access to resources without sharing ...",
+    "host_name": "stackoverflow.blog",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://learning.postman.com/docs/use/send-requests/authorization/oauth-20",
+    "name": "Authenticate with OAuth 2.0 authentication in Postman",
+    "snippet": "With OAuth 2.0, you first retrieve an access token for the API, then use that token to authenticate future requests. Access tokens are typically short-lived ...",
+    "host_name": "learning.postman.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2",
+    "name": "Access Data on Behalf of Other Users with OAuth 2 Guide - Mailchimp",
+    "snippet": "In this guide, we'll walk through how to set up OAuth 2 to authenticate users of your app, then demonstrate how to make a call to the Marketing API using an ...",
+    "host_name": "mailchimp.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mailchimp.com/developer/marketing/docs/fundamentals",
+    "name": "Fundamentals Documentation | Mailchimp Developer",
+    "snippet": "API authentication is tied to the user that created the API key or authorized the OAuth2 app. If the user is removed from the account, that authentication token ...",
+    "host_name": "mailchimp.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stackoverflow.com/questions/47541350/oauth-2-token-of-mailchimp-api-call",
+    "name": "OAuth 2 token of MailChimp API call - Stack Overflow",
+    "snippet": "OAuth2 is a secure option that allows third-party applications to access a server without passing user credentials or API keys. API key for Mailchimp API authentication Methods MailChimp OAuth2 Access Token - Stack Overflow More results from stackoverflow.com",
+    "host_name": "stackoverflow.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mailchimp.com/developer/marketing/guides/quick-start",
+    "name": "Marketing API Quick Start Guide | Mailchimp Developer",
+    "snippet": "Use this guide to start using the Mailchimp Marketing API. Learn how to generate your API key, install the client library, and make your first API call.",
+    "host_name": "mailchimp.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.arcade.dev/en/references/auth-providers/mailchimp",
+    "name": "Mailchimp | Arcade Docs",
+    "snippet": "The Mailchimp auth provider enables tools and agents to call Mailchimp Marketing APIs on behalf of a user using OAuth 2.0 authentication.",
+    "host_name": "docs.arcade.dev",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mailchimp.com/developer/marketing",
+    "name": "Mailchimp Marketing API | Mailchimp Developer",
+    "snippet": "Access data on behalf of other users with OAuth 2. Integrate your product with your users' Mailchimp accounts by authenticating via OAuth. Join Mailchimp.",
+    "host_name": "mailchimp.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

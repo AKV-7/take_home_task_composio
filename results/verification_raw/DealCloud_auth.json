@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://api.docs.dealcloud.com/docs/token",
+    "name": "Requesting an OAuth2 Bearer Token - DealCloud API Docs",
+    "snippet": "Requesting an OAuth2 Bearer Token. DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token, which is then used in the ...",
+    "host_name": "api.docs.dealcloud.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://api.docs.dealcloud.com/sdk/python/authentication",
+    "name": "Authentication - DealCloud API Docs",
+    "snippet": "Creating a client and authenticating. dealcloud_sdk 's main entrypoint is the DealCloud class. When it is instantiated, the object is scoped to a given ...",
+    "host_name": "api.docs.dealcloud.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "http://hexdocs.pm/dealcloud/api-reference.html",
+    "name": "API Reference — dealcloud v0.4.0 - Hexdocs",
+    "snippet": "A blazing fast SDK for using the Dealcloud | OnePlace APIs in pure Elixir. Dealcloud.Auth Handles authentication with Dealcloud's API.",
+    "host_name": "hexdocs.pm",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://api.docs.dealcloud.com/docs",
+    "name": "DealCloud API Docs",
+    "snippet": "Welcome to the DealCloud API Docs! This site provides a comprehensive overview of our REST APIs, their capabilities, and available endpoints.",
+    "host_name": "api.docs.dealcloud.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://salestools.club/auth/oauth2",
+    "name": "Sales APIs with Oauth2 Auth - Salestools Club",
+    "snippet": "Connecting your AI agent? These tools use Oauth2 auth, making them easy to use with Claude Code and Gemini CLI. Filter by Category.",
+    "host_name": "salestools.club",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://apitracker.io/a/dealcloud",
+    "name": "DealCloud API - Developer docs, APIs, SDKs, and auth. - API Tracker",
+    "snippet": "DealCloud API specs, API docs, OpenAPI support, SDKs, GraphQL, developer docs, CLI, IDE plugins, API pricing, developer experience, authentication, and API ...",
+    "host_name": "apitracker.io",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

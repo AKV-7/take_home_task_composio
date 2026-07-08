@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+    "name": "Devin MCP",
+    "snippet": "The Model Context Protocol (MCP) is an open standard that enables AI apps to securely connect to MCP-compatible data sources and tools.",
+    "host_name": "docs.devin.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol - Anthropic",
+    "snippet": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.",
+    "host_name": "www.anthropic.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/ja/work-with-devin/mcp",
+    "name": "MCP (Model Context Protocol) マーケットプレイス - Devin Docs",
+    "snippet": "MCP (Model Context Protocol) MCP は、Devin が数百の外部ツールやデータソースを利用できるようにするオープンなプロトコルです。Devin",
+    "host_name": "docs.devin.ai",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+    "name": "Tools - Model Context Protocol",
+    "snippet": "The Model Context Protocol (MCP) allows servers to expose tools that can be invoked by language models. Tools enable models to interact with external systems,",
+    "host_name": "modelcontextprotocol.io",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.philschmid.de/mcp-introduction",
+    "name": "Model Context Protocol (MCP) an overview - Philschmid",
+    "snippet": "Overview of the Model Context Protocol (MCP) how it works, what are MCP servers and clients, and how to use it.",
+    "host_name": "www.philschmid.de",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/ai-cloud-lab/model-context-protocol-mcp-with-ollama-a-full-deep-dive-working-code-part-1-81a3bb6d16b3",
+    "name": "Understanding Model Context Protocol (MCP) : A Full Deep Dive +",
+    "snippet": "Model Context Protocol (MCP) is an open protocol that allows Large Language Models (LLMs) to interact with external tools through structured API calls.",
+    "host_name": "medium.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

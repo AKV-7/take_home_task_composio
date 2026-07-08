@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.stripe.com/stripe-apps/api-authentication/oauth",
+    "name": "OAuth 2.0 - Stripe Documentation",
+    "snippet": "Develop your app · Test your app · Create your OAuth ... Develop your app · Create your OAuth install link · Exchange the authorization...",
+    "host_name": "docs.stripe.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.stripe.com/api/authentication",
+    "name": "Authentication | Stripe API Reference",
+    "snippet": "The Stripe API uses API keys to authenticate requests. You can view and manage your API keys in the Stripe Dashboard. Your API keys carry many privileges.",
+    "host_name": "docs.stripe.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.stripe.com/api",
+    "name": "Stripe API Reference",
+    "snippet": "The Stripe API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses.",
+    "host_name": "docs.stripe.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.stripe.com/stripe-apps/api-authentication",
+    "name": "API authentication methods - Stripe Documentation",
+    "snippet": "Use industry standard OAuth 2.0 to generate access tokens to interact with the Stripe API. Initialize the Stripe SDK with the access token for the account you' ...",
+    "host_name": "docs.stripe.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.stripe.com/keys",
+    "name": "API keys - Stripe Documentation",
+    "snippet": "Learn how to create, manage, and use API keys to authenticate requests to the Stripe API. Use the Developers Dashboard to create, reveal, delete, and rotate  ...",
+    "host_name": "docs.stripe.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://logto.io/oauth-providers-explorer/stripe",
+    "name": "Stripe OAuth endpoints - Logto",
+    "snippet": "The endpoint to exchange the authorization code or refresh token for an access token and a refresh token. Stripe OAuth documentation and resources.",
+    "host_name": "logto.io",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

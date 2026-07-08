@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.slack.dev/ai/slack-mcp-server",
+    "name": "Overview | Slack Developer Docs",
+    "snippet": "App Identity · Security concerns · Authentication and Token...\nMCP standardizes how applications provide context to LLMs. With the Slack MCP server, your integrated apps can search channels, send messages, and perform other Slack actions through MCP clients. Workspace admins can approve and manage all MCP client integrations, keeping your Slack data safe.",
+    "host_name": "docs.slack.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://slack.com/blog/news/mcp-real-time-search-api-now-available",
+    "name": "Slack Securely Powers Your Third-Party Agents With Your Business",
+    "snippet": "Slack MCP server streamlines how large language models and AI agents access Slack data, providing conversational context to ground agent responses and actions.\nSlack MCP server streamlines how large language models and AI agents access Slack data, providing conversational context to ground agent responses and actions. It serves as a unified, bidirectional communication layer that respects user permissions, reducing the need for complex, service-specific integrations.",
+    "host_name": "slack.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.workato.com/the-connector/slack-mcp",
+    "name": "Slack MCP Integration: Your Practical How-to Guide - Workato",
+    "snippet": "Model Context Protocol (MCP) is a specification for exchanging context, capabilities, and structured actions between clients and servers.",
+    "host_name": "www.workato.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpservers.org/servers/redhat-ai-tools/slack-mcp",
+    "name": "Slack - Awesome MCP Servers",
+    "snippet": "slack-mcp. A Model Context Protocol (MCP) server that enables AI assistants to interact with Slack workspaces. This server provides a bridge between AI ...",
+    "host_name": "mcpservers.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lobehub.com/mcp/ampcome-mcps-slack-mcp",
+    "name": "Slack MCP Server - LobeHub",
+    "snippet": "A Model Context Protocol (MCP) server that integrates with Slack's API to manage channels, messages, users, reactions, and threads.",
+    "host_name": "lobehub.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/korotovsky/slack-mcp-server",
+    "name": "korotovsky/slack-mcp-server - GitHub",
+    "snippet": "Model Context Protocol (MCP) server for Slack Workspaces. The most powerful MCP Slack server — supports Stdio, SSE and HTTP transports, proxy settings, DMs, ...",
+    "host_name": "github.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

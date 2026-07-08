@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://admin.salesforce.com/blog/2025/what-is-mcp-a-simple-guide-to-model-context-protocol-for-salesforce-admins",
+    "name": "What Is MCP? A Simple Guide to Model Context Protocol for",
+    "snippet": "Model Context Protocol is a new standard that lets agents talk to each other. We break down what it is, how it works & what it means for ...",
+    "host_name": "admin.salesforce.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/smn2gnt/MCP-Salesforce",
+    "name": "smn2gnt/MCP-Salesforce: MCP Salesforce connector · GitHub",
+    "snippet": "A Model Context Protocol (MCP) server implementation for Salesforce integration, allowing LLMs to interact with Salesforce data through SOQL queries and SOSL ...",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+    "name": "Get Started | Hosted MCP Servers - Salesforce Developers",
+    "snippet": "Salesforce Hosted MCP Servers give AI agents a secure, governed way to interact with Salesforce data and automation. Using the open Model Context Protocol (MCP) ...",
+    "host_name": "developer.salesforce.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.k2view.com/blog/salesforce-mcp",
+    "name": "Salesforce MCP: Connecting AI agents to enterprise data - K2view",
+    "snippet": "Model Context Protocol (MCP) enables AI agents to leverage Salesforce and other enterprise systems in real time, to boost GenAI response accuracy and data ...",
+    "host_name": "www.k2view.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/salesforce/comments/1kzyxo6/i_made_my_own_salesforce_mcp_server",
+    "name": "I made my own Salesforce MCP server - Reddit",
+    "snippet": "I've built a Model Context Protocol (MCP) server that establishes a direct, programmatic connection between your Salesforce org and AI development tools.",
+    "host_name": "www.reddit.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_mcp.htm",
+    "name": "Salesforce DX MCP Server and Tools",
+    "snippet": "The Salesforce DX MCP Server is a specialized Model Context Protocol (MCP) ... To narrow the LLM context, the DX MCP Server groups the tools into toolsets based on ...",
+    "host_name": "developer.salesforce.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

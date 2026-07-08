@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.workato.com/integrations/deal-cloud~mcp",
+    "name": "Deal Cloud and MCP (Model Context Protocol) integration - Workato",
+    "snippet": "Instantly integrate Deal Cloud and MCP (Model Context Protocol) workflows and tasks across on-premise, cloud apps and databases. No coding required! Missing: server | Show results with: server",
+    "host_name": "www.workato.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.upguard.com/breaches/shared-context-how-an-mcp-server-exposed-a-private-equity-firm",
+    "name": "Shared Context: How an MCP Server Exposed a Private Equity Firm",
+    "snippet": "Model Context Protocol (MCP) is a specification for making external systems accessible to AI agents.",
+    "host_name": "www.upguard.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://knowledge.dealroom.co/knowledge/model-context-protocol-mcp-support-for-dealroom-api",
+    "name": "Model Context Protocol (MCP) for Dealroom API",
+    "snippet": "This article explains how to install and configure the Dealroom MCP Server so your tools can securely use your API key to fetch real-time intelligence. Missing: DealCloud | Show results with: DealCloud",
+    "host_name": "knowledge.dealroom.co",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/TensorBlock/awesome-mcp-servers/blob/main/docs/cloud-platforms--services.md",
+    "name": "cloud-platforms--services.md - GitHub",
+    "snippet": "A comprehensive collection of Model Context Protocol (MCP) servers. Servers integrating with major cloud providers or specific cloud services.",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.metal.ai/blog/understand-mcp-in-5-mins",
+    "name": "Understand MCP in 5 Mins: What's Missing in PE's Current AI Strategy?",
+    "snippet": "What is Model Context Protocol (MCP)?. ✓ MCP is a connector that lets AI tap directly into your external systems. ✓ In private equity use cases, ...",
+    "host_name": "www.metal.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@laowang_journey/model-context-protocol-mcp-real-world-use-cases-adoptions-and-comparison-to-functional-calling-9320b775845c",
+    "name": "Model Context Protocol (MCP) real world use cases, adoptions and",
+    "snippet": "An MCP server is a lightweight program that exposes specific capabilities (like database queries, file access, or API calls) via the MCP ...",
+    "host_name": "medium.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

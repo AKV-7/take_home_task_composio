@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://slack.com/pricing/free",
+    "name": "Free Plan | Pricing - Slack",
+    "snippet": "Free plan enables small teams to communicate and stay connected. Create a workspace. Get the basics, and get more done. Unlimited private & public channels.",
+    "host_name": "slack.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://slack.com/pricing",
+    "name": "Slack Pricing Plans: Find the Right Fit for Your Team",
+    "snippet": "Compare Slack's pricing plans for businesses of all sizes. Choose the right features and support to power your team's productivity and collaboration.",
+    "host_name": "slack.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://saascrmreview.com/slack-pricing",
+    "name": "Slack Pricing 2026: Full Guide to Selecting the Right Plan",
+    "snippet": "Free plan costs $0 but limits message history to 90 days and caps app integrations at 10. Slack Pro pricing is $8.75/user/month (billed annually) ...",
+    "host_name": "saascrmreview.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://slack.com/pricing/paid-vs-free",
+    "name": "Slack Paid vs. Free",
+    "snippet": "Learn the benefits of upgrading from a free Slack plan to a paid workspace, and compare our different plans to see which one is right for your team.",
+    "host_name": "slack.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.salesforce.com/ap/slack/pricing",
+    "name": "Salesforce Slack Pricing Plans",
+    "snippet": "Slack has three pricing tiers for companies of all sizes: Pro, Business+ and Enterprise+. You can also discuss pricing questions with our sales team. Can I save ...",
+    "host_name": "www.salesforce.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.slack.dev/slack-marketplace/slack-marketplace-app-guidelines-and-requirements",
+    "name": "Slack Marketplace app guidelines and requirements",
+    "snippet": "In particular, for workspaces using Slack's free tier, message and file history is limited to 90 days. Your app shouldn't make it possible for people to ...",
+    "host_name": "docs.slack.dev",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

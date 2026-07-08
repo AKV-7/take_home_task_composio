@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-gen-ai-selling-partner-api/integrating-sp-api.html",
+    "name": "Integrating the Amazon Selling Partner API - AWS Documentation",
+    "snippet": "Select an authorization model",
+    "host_name": "docs.aws.amazon.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer-docs-amazon-shipping.readme.io/apis/docs/authorizing-selling-partner-api-applications",
+    "name": "Authorizing Selling Partner API applications - Amazon Shipping",
+    "snippet": "To implement OAuth authorization you must configure your website to (1) accept and process the parameters that Amazon passes to it, and (2) redirect the selling ...",
+    "host_name": "developer-docs-amazon-shipping.readme.io",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.amazonservices.com",
+    "name": "Amazon Selling Partner API (SP-API)",
+    "snippet": "The Selling Partner API (SP-API) is a REST-based API that helps Amazon selling partners programmatically access their data on orders, shipments, payments, and ...",
+    "host_name": "developer.amazonservices.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://python-amazon-sp-api.readthedocs.io/en/v0.13.0/endpoints/authorization",
+    "name": "Authorization - python-amazon-sp-api",
+    "snippet": "The Selling Partner API for Authorization helps developers manage authorizations and check the specific permissions associated with a given authorization.",
+    "host_name": "python-amazon-sp-api.readthedocs.io",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@daniele.cr/implementing-authorization-workflow-on-amazon-sp-api-d568383d8a72",
+    "name": "Implementing Authorization Workflow (on Amazon SP API) - Medium",
+    "snippet": "Amazon Selling Partner API documents two kinds of authorization workflow, one starting from your website app ...",
+    "host_name": "medium.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://zappysys.com/api/integration-hub/amazon-selling-partner-connector/help/authentication/OAuthSelf",
+    "name": "Private app authentication - Amazon Selling Partner (SP-API) Connector",
+    "snippet": "Forget Amazon Selling Partner (SP-API) OAuth (Private app) authentication headaches with our low-code connector for SSIS, SQL Server, and ODBC.",
+    "host_name": "zappysys.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

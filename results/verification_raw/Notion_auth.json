@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developers.notion.com/guides/get-started/authorization",
+    "name": "Authorization - Notion Docs",
+    "snippet": "Authorization is the process of granting a connection or token access to Notion data. Internal connections use a static API token, personal access tokens use a ...",
+    "host_name": "developers.notion.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developers.notion.com/reference/authentication",
+    "name": "Authentication - Notion Docs",
+    "snippet": "Requests use the HTTP Authorization header to both authenticate and authorize operations. The Notion API accepts bearer tokens in this header.",
+    "host_name": "developers.notion.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developers.notion.com/guides/get-started/overview",
+    "name": "Overview - Notion Docs",
+    "snippet": "Public connections use OAuth 2.0 for authentication. · Personal access tokens ...",
+    "host_name": "developers.notion.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developers.notion.com/reference/create-a-token",
+    "name": "Create a token - Notion Docs",
+    "snippet": "Creates an access token that a third-party service can use to authenticate with Notion.",
+    "host_name": "developers.notion.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.n8n.io/integrations/builtin/credentials/notion",
+    "name": "Notion credentials | Nodes - n8n Docs",
+    "snippet": "Public integrations use the OAuth 2.0 protocol for authentication. They require a Notion security review before publishing. For a more ...",
+    "host_name": "docs.n8n.io",
+    "rank": 4,
+    "date": "Jul 2, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=st5tG1XqZbk",
+    "name": "Integrating Notion API (OAuth) With NextJs Applications (Ep. 86)",
+    "snippet": "Building an application that utilizes the Notion API and want to know how to integrate OAuth? Join us this week as we explore how to add ...",
+    "host_name": "www.youtube.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

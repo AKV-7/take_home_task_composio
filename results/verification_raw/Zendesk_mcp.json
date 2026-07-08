@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://github.com/reminia/zendesk-mcp-server",
+    "name": "reminia/zendesk-mcp-server - GitHub",
+    "snippet": "A Model Context Protocol server for Zendesk. This server provides a comprehensive integration with Zendesk. It offers: Tools for retrieving and managing ...",
+    "host_name": "github.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.zendesk.com/blog/zendesk-insights/innovation/zendesk-ai-mcp-client",
+    "name": "Revolutionizing service with the Zendesk AI MCP client",
+    "snippet": "The Model Context Protocol (MCP), introduced by Anthropic , changes this. It's a standard, open framework that gives AI assistants a simple, ...",
+    "host_name": "www.zendesk.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.speakeasy.com/mcp/using-mcp/mcp-server-providers/zendesk",
+    "name": "Zendesk - Speakeasy",
+    "snippet": "Use Zendesk from your MCP Client. This guide demonstrates how to connect your Zendesk workspace to Claude Desktop using the Model Context Protocol (MCP).",
+    "host_name": "www.speakeasy.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/server/zendesk-3",
+    "name": "Zendesk API MCP Server | Manage Support, Chat & Guide",
+    "snippet": "Leverage a comprehensive Model Context Protocol (MCP) server designed for seamless interaction with the Zendesk API. This powerful server provides robust ...",
+    "host_name": "mcpmarket.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lobehub.com/mcp/scottolsen-zendesk-mcp-server",
+    "name": "Zendesk MCP Server - LobeHub",
+    "snippet": "A Model Context Protocol (MCP) server that integrates with Zendesk Support, allowing AI assistants to interact with your Zendesk instance.",
+    "host_name": "lobehub.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.mcpbundles.com/skills/zendesk",
+    "name": "Zendesk MCP Server & Skill",
+    "snippet": "It provides 29 tools that AI agents can use through the Model Context Protocol (MCP). How do I connect Zendesk to my AI agent?",
+    "host_name": "www.mcpbundles.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

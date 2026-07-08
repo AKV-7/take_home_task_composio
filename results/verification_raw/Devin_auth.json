@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.devin.ai/api-reference/authentication",
+    "name": "Authentication - Devin Docs",
+    "snippet": "The Devin API uses a principal + token model. A principal is who you are (your identity), and a token is how you prove it (your credential). Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.devin.ai",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/api-reference/overview",
+    "name": "API Overview - Devin Docs",
+    "snippet": "The Devin API enables you to integrate Devin into your applications, automate workflows, and build powerful tools. Use service users with role-based access ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.devin.ai",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/enterprise/security-access/sso/oidc",
+    "name": "OIDC SSO Setup - Devin Docs",
+    "snippet": "​. Step 2: Locate Your Discovery URL · ​. Step 3: Configure Scopes · ​. Step 4: Configure Group Claims (Required ...",
+    "host_name": "docs.devin.ai",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/api-reference/v2/overview",
+    "name": "v2 API Overview (Legacy) - Devin Docs",
+    "snippet": "The v2 API provides enterprise-wide management, analytics, and compliance capabilities for enterprise administrators. Access to the v2 API requires Enterprise ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.devin.ai",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/desktop/accounts/api-reference/analytics-v2-introduction",
+    "name": "Analytics API v2 - Devin Docs",
+    "snippet": "Next-generation analytics API for querying consumption data with Bearer-token authentication, flexible grouping, and cursor-based pagination. Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.devin.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.devin.ai/cli/enterprise/devin-auth",
+    "name": "Devin Auth",
+    "snippet": "Overview. You can authenticate to Devin CLI using your existing Devin account. This provides a seamless experience for organizations already using Devin, ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.devin.ai",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

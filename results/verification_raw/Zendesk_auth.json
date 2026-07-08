@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developer.zendesk.com/documentation/api-basics/authentication/creating-and-using-oauth-tokens-with-the-api",
+    "name": "Creating and using OAuth access tokens with the API",
+    "snippet": "This guide shows how you can use the API to create OAuth access tokens on your own behalf. The guide also covers how to use OAuth access tokens to authenticate ...",
+    "host_name": "developer.zendesk.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.zendesk.com/api-reference/sales-crm/authentication/introduction",
+    "name": "OAuth 2.0 Introduction - Zendesk Developer Docs",
+    "snippet": "All requests to the Sell API must be authenticated and must include a valid access token. The Sell API utilizes the industry-standard OAuth 2.0 protocol.",
+    "host_name": "developer.zendesk.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth",
+    "name": "Security and authentication | Zendesk Developer Docs",
+    "snippet": "You must be a verified user to make API requests. You can authorize against the API using your email address and an API token, or with an OAuth access token.",
+    "host_name": "developer.zendesk.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application",
+    "name": "Using OAuth authentication with your application - Zendesk help",
+    "snippet": "You can use OAuth 2 to authenticate all your application's API requests to Zendesk. OAuth provides a secure way for your application to access Zendesk data.",
+    "host_name": "support.zendesk.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.zendesk.com/api-reference/ticketing/oauth/oauth_tokens",
+    "name": "OAuth Tokens | Zendesk Developer Docs",
+    "snippet": "Note: For OAuth authorization code, use the Create Token for Grant Type endpoint. The two APIs don't share the same path, JSON format, or request parameters.",
+    "host_name": "developer.zendesk.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.n8n.io/integrations/builtin/credentials/zendesk",
+    "name": "Zendesk credentials | Nodes - n8n Docs",
+    "snippet": "To create a new OAuth client, go to Apps and integrations > APIs > Zendesk API > OAuth Clients. Use these settings: Copy the OAuth Redirect URL ...",
+    "host_name": "docs.n8n.io",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

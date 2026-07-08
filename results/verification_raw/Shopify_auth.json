@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://shopify.dev/docs/apps/build/authentication-authorization",
+    "name": "Authentication and authorization - Shopify Dev Docs",
+    "snippet": "This guide introduces the different methods of authenticating and authorizing apps with Shopify's platform.",
+    "host_name": "shopify.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://shopify.dev/docs/api/usage/authentication",
+    "name": "Shopify API authentication",
+    "snippet": "This guide introduces you to the authentication and authorization methods that you will use to connect to Shopify's APIs.",
+    "host_name": "shopify.dev",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/authorization-code-grant",
+    "name": "Implement authorization code grant manually - Shopify Dev Docs",
+    "snippet": "This tutorial shows you how to install your app and acquire access tokens using authorization code grant, either using a Shopify Admin API library, or from ...",
+    "host_name": "shopify.dev",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/Shopify/shopify_app/blob/main/docs/shopify_app/authentication.md",
+    "name": "Authentication - Shopify/shopify_app - GitHub",
+    "snippet": "The Shopify App gem implements OAuth 2.0 to get session tokens. These are used to authenticate requests made by the app to the Shopify API.",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.shopify.com/t/how-does-app-installation-work-in-production-with-oauth2-0/308993",
+    "name": "How does app installation work in production with OAuth2.0?",
+    "snippet": "Shopify manages the complete installation flow for you, developer doesn't need to provide the installation or callback URLs in the app backend.",
+    "host_name": "community.shopify.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens",
+    "name": "About token acquisition - Shopify Dev Docs",
+    "snippet": "For standalone apps, Shopify uses OAuth 2.0's authorization code grant flow to issue access tokens on behalf of merchants. The OAuth flow enables merchants to ...",
+    "host_name": "shopify.dev",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

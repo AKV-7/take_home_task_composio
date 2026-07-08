@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+    "name": "Authorization Through External Client Apps or Connected Apps and",
+    "snippet": "OAuth 2.0 is an open protocol that authorizes secure data sharing between applications through the exchange of tokens. For instructions to configure an external ...",
+    "host_name": "developer.salesforce.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/intro_using_oauth.htm",
+    "name": "OAuth and Connect REST API - Salesforce Developers",
+    "snippet": "Connect REST API uses OAuth to securely identify your application before connecting to Salesforce. OAuth has multiple authentication flows.",
+    "host_name": "developer.salesforce.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.boomi.com/s/article/howtoconnecttosalesforcerestapiwithoauth20",
+    "name": "Article: How to Connect to Salesforce REST API with OAuth 2.0",
+    "snippet": "The following describes the Boomi Enterprise Platform and Salesforce configuration to setup a connection to the Salesforce REST API with OAuth 2.0 ...",
+    "host_name": "community.boomi.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://logto.io/oauth-providers-explorer/salesforce",
+    "name": "Salesforce OAuth endpoints - Logto",
+    "snippet": "The standardized OAuth endpoint that returns authenticated user profile information, including claims about the current user based on the scope of access token ...",
+    "host_name": "logto.io",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=xcloud.remoteaccess_oauth_client_credentials_flow.htm&type=5",
+    "name": "OAuth 2.0 Client Credentials Flow for Server-to-Server Integration",
+    "snippet": "The external client app uses the access token to call a Salesforce API, such as REST API. The API responds with the requested data for the report.",
+    "host_name": "help.salesforce.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.salesforceben.com/salesforce-to-salesforce-integration-using-oauth-2-0-a-comprehensive-guide",
+    "name": "Salesforce to Salesforce Integration Using OAuth 2.0",
+    "snippet": "This article offers a detailed, step-by-step guide for implementing Salesforce-to-Salesforce integration using OAuth 2.0.",
+    "host_name": "www.salesforceben.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

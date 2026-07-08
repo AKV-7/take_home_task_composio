@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.snowflake.com/en/user-guide/oauth-intro",
+    "name": "Introduction to OAuth | Snowflake Documentation",
+    "snippet": "External OAuth. The following ... Private connectivity · Clients, drivers, and connectors",
+    "host_name": "docs.snowflake.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+    "name": "Authenticating to the server - Snowflake Documentation",
+    "snippet": "This topic describes how to authenticate to the server when using the Snowflake SQL API. When you send a request, the request must include authentication ...",
+    "host_name": "docs.snowflake.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/snowflake/securing-snowflake-api-request-building-a-custom-oauth-client-with-fastapi-a2dd453c9ca0",
+    "name": "Securing Snowflake API Request: Building a Custom OAuth Client",
+    "snippet": "Discover how to securely interact with the Snowflake REST API services by building a custom OAuth client using Python and FastAPI.",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.snowflake.com/en/user-guide/oauth-custom",
+    "name": "Configure Snowflake OAuth for custom clients",
+    "snippet": "Complete the steps in Using key-pair authentication (in this topic):. Generate a new private and public key set. Assign the public key to the integration.",
+    "host_name": "docs.snowflake.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://community.boomi.com/s/article/Configure-Snowflake-REST-API-with-OAuth-2",
+    "name": "Configure Snowflake REST API with OAuth 2 - Boomi Community",
+    "snippet": "The Snowflake REST API is one of the common APIs used to connect with Snowflake. This article outlines how to create a Snowflake Integration and configure the ...",
+    "host_name": "community.boomi.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=i1fVfKz7ofM",
+    "name": "Authenticating to the Server in Snowflake - SQL REST API - YouTube",
+    "snippet": "Continuing our SQL REST API series, Snowflake Pro Rich Hathaway explains the ins and outs of authenticating to the server and the uses of ...",
+    "host_name": "www.youtube.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

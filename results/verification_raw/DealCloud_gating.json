@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://api.docs.dealcloud.com",
+    "name": "Dealcloud Developer Documentation",
+    "snippet": "Dealcloud Developer Documentation 🚀. API Reference Getting Started API Keys. Rate Limits Status Codes and Handling. How to Create a User How to ...",
+    "host_name": "api.docs.dealcloud.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://free-for.dev",
+    "name": "Free for Developers",
+    "snippet": "self-hosted software. On our free tier, a developer (single user) can deploy unlimited static sites, web. The free plan comes with 100 PDFs/month and three ...",
+    "host_name": "free-for.dev",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aws.amazon.com/free",
+    "name": "Free Cloud Computing Services - AWS Free Tier",
+    "snippet": "When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more.",
+    "host_name": "aws.amazon.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://cloud.google.com/free",
+    "name": "Free Trial and Free Tier Services and Products - Google Cloud",
+    "snippet": "Start building on Google Cloud with $300 in free credits and free usage of 20+ products like Compute Engine and Cloud Storage, up to monthly limits.",
+    "host_name": "cloud.google.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.intapp.com/dealcloud",
+    "name": "The AI-powered deal and relationship intelligence platform - Intapp",
+    "snippet": "Fill out the form to book a demo, DealCloud can help your firm navigate complex networks, source more deals, and execute business faster.",
+    "host_name": "www.intapp.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://business.daily.dev/resources/developer-tool-pricing-strategy-free-tier-enterprise-contracts",
+    "name": "Developer Tool Pricing Strategy: From Free Tier to Enterprise Contracts",
+    "snippet": "Guide to pricing developer tools: design free tiers, choose seat/usage/tier/hybrid models, and reprice transparently.",
+    "host_name": "business.daily.dev",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

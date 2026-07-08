@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://apify.com/engaging_image/mailchimp-mcp-server",
+    "name": "Mailchimp MCP Server | AI Email Marketing for Claude & AI - Apify",
+    "snippet": "The most comprehensive Mailchimp MCP Server built on the Model Context Protocol (MCP), giving your AI assistant full control over your Mailchimp account. With ...",
+    "host_name": "apify.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/damientilman/mailchimp-mcp-server",
+    "name": "damientilman/mailchimp-mcp-server: The most complete  - GitHub",
+    "snippet": "The most complete Model Context Protocol (MCP) server for the Mailchimp Marketing API: 227 tools to query and manage your Mailchimp account ...",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "Jul 6, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://cloud.google.com/discover/what-is-model-context-protocol",
+    "name": "What is Model Context Protocol (MCP)? A guide | Google Cloud",
+    "snippet": "Learn how the Model Context Protocol (MCP) standard allows LLMs to safely access external data and use tools, making AI more powerful and reliable.",
+    "host_name": "cloud.google.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/server/mailchimp",
+    "name": "MailchimpMCP: API Development Utilities for Mailchimp - MCP Market",
+    "snippet": "openclaw. GH Issues Auto-Fixer.",
+    "host_name": "mcpmarket.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=YcUrRAnFp8Q",
+    "name": "How to connect Mailchimp with AI Agent - MCP Tutorial - YouTube",
+    "snippet": "0:00 Intro 0:06 Get Mailchimp API key 0:35 Edit Agent and add Mailchimp tool 1:00 Example The integration is using MCP (Model Context Protocol).",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://codilime.com/blog/model-context-protocol-explained",
+    "name": "Model Context Protocol (MCP) explained: A practical technical",
+    "snippet": "Each client-server pair has its own session, enforcing clear boundaries so that protocols, permissions, and policies don't bleed across domains.",
+    "host_name": "codilime.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

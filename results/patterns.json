@@ -1,0 +1,289 @@
+{
+  "total_apps": 100,
+  "auth_distribution": [
+    [
+      "API Key/Token",
+      73
+    ],
+    [
+      "OAuth2",
+      57
+    ],
+    [
+      "Basic",
+      5
+    ],
+    [
+      "Bot Token",
+      3
+    ],
+    [
+      "Key Pair/JWT",
+      3
+    ],
+    [
+      "None (CLI/CLI-only)",
+      2
+    ],
+    [
+      "Other",
+      2
+    ]
+  ],
+  "self_serve_distribution": [
+    [
+      "self-serve",
+      74
+    ],
+    [
+      "gated",
+      13
+    ],
+    [
+      "partial",
+      13
+    ]
+  ],
+  "mcp_distribution": [
+    [
+      "no",
+      61
+    ],
+    [
+      "yes-community",
+      29
+    ],
+    [
+      "yes-official",
+      10
+    ]
+  ],
+  "buildability_distribution": [
+    [
+      "buildable",
+      78
+    ],
+    [
+      "buildable-gated",
+      22
+    ]
+  ],
+  "per_category": {
+    "CRM and Sales": {
+      "total": 10,
+      "self_serve": 9,
+      "gated": 1,
+      "partial": 0,
+      "buildable": 9,
+      "buildable_gated": 1,
+      "mcp_official": 1,
+      "mcp_community": 4,
+      "mcp_no": 5
+    },
+    "Support and Helpdesk": {
+      "total": 10,
+      "self_serve": 9,
+      "gated": 1,
+      "partial": 0,
+      "buildable": 9,
+      "buildable_gated": 1,
+      "mcp_official": 0,
+      "mcp_community": 3,
+      "mcp_no": 7
+    },
+    "Communications and Messaging": {
+      "total": 10,
+      "self_serve": 10,
+      "gated": 0,
+      "partial": 0,
+      "buildable": 10,
+      "buildable_gated": 0,
+      "mcp_official": 1,
+      "mcp_community": 5,
+      "mcp_no": 4
+    },
+    "Marketing, Ads, Email and Social": {
+      "total": 10,
+      "self_serve": 8,
+      "gated": 0,
+      "partial": 2,
+      "buildable": 9,
+      "buildable_gated": 1,
+      "mcp_official": 0,
+      "mcp_community": 3,
+      "mcp_no": 7
+    },
+    "Ecommerce": {
+      "total": 10,
+      "self_serve": 5,
+      "gated": 2,
+      "partial": 3,
+      "buildable": 6,
+      "buildable_gated": 4,
+      "mcp_official": 1,
+      "mcp_community": 3,
+      "mcp_no": 6
+    },
+    "Data, SEO and Scraping": {
+      "total": 10,
+      "self_serve": 5,
+      "gated": 3,
+      "partial": 2,
+      "buildable": 6,
+      "buildable_gated": 4,
+      "mcp_official": 2,
+      "mcp_community": 0,
+      "mcp_no": 8
+    },
+    "Developer, Infra and Data platforms": {
+      "total": 10,
+      "self_serve": 9,
+      "gated": 0,
+      "partial": 1,
+      "buildable": 10,
+      "buildable_gated": 0,
+      "mcp_official": 1,
+      "mcp_community": 4,
+      "mcp_no": 5
+    },
+    "Productivity and Project Management": {
+      "total": 10,
+      "self_serve": 10,
+      "gated": 0,
+      "partial": 0,
+      "buildable": 10,
+      "buildable_gated": 0,
+      "mcp_official": 2,
+      "mcp_community": 3,
+      "mcp_no": 5
+    },
+    "Finance and Fintech": {
+      "total": 10,
+      "self_serve": 5,
+      "gated": 4,
+      "partial": 1,
+      "buildable": 5,
+      "buildable_gated": 5,
+      "mcp_official": 1,
+      "mcp_community": 3,
+      "mcp_no": 6
+    },
+    "AI, Research and Media-native": {
+      "total": 10,
+      "self_serve": 4,
+      "gated": 2,
+      "partial": 4,
+      "buildable": 4,
+      "buildable_gated": 6,
+      "mcp_official": 1,
+      "mcp_community": 1,
+      "mcp_no": 8
+    }
+  },
+  "blockers": [
+    [
+      "Enterprise sales / partnership",
+      8
+    ],
+    [
+      "Paid plan required",
+      6
+    ],
+    [
+      "Limited docs / unclear surface",
+      6
+    ],
+    [
+      "App review / registration approval",
+      4
+    ],
+    [
+      "OAuth / API complexity",
+      4
+    ],
+    [
+      "Other",
+      4
+    ],
+    [
+      "Self-host complexity",
+      2
+    ],
+    [
+      "Regional restrictions",
+      1
+    ]
+  ],
+  "easy_wins_count": 74,
+  "needs_outreach_count": 22,
+  "official_mcp_count": 10,
+  "no_mcp_but_buildable_count": 41,
+  "easy_wins_sample": [
+    "Salesforce",
+    "HubSpot",
+    "Pipedrive",
+    "Attio",
+    "Twenty",
+    "Podio",
+    "Zoho CRM",
+    "Close"
+  ],
+  "needs_outreach_list": [
+    "DealCloud",
+    "Gladly",
+    "systeme.io",
+    "Salesforce Commerce Cloud",
+    "Squarespace",
+    "Amazon Selling Partner",
+    "fanbasis",
+    "Ahrefs",
+    "Bright Data",
+    "Waterfall.io",
+    "Clay",
+    "Paygent Connect",
+    "iPayX",
+    "Brex",
+    "Ramp",
+    "PitchBook",
+    "NotebookLM",
+    "Otter AI",
+    "Fathom",
+    "Consensus",
+    "higgsfield",
+    "Grain"
+  ],
+  "official_mcp_list": [
+    "Salesforce",
+    "Slack",
+    "Shopify",
+    "Apify",
+    "Firecrawl",
+    "GitHub",
+    "Notion",
+    "Linear",
+    "Stripe",
+    "Devin"
+  ],
+  "headline_patterns": [
+    {
+      "headline": "API Key/Token is the dominant auth, but OAuth2 covers all the big enterprise surfaces.",
+      "detail": "73 of 100 apps accept API keys/tokens; 57 use OAuth2 (concentrated in CRM, finance, ads). 8% use Basic, 4% use CLI-only (no auth)."
+    },
+    {
+      "headline": "74% of apps are fully self-serve \u2014 the gating concentration is in Finance, Ecommerce enterprise, and B2B SaaS sales motions.",
+      "detail": "74 self-serve, 13 gated, 13 partial. Gated = Ramp, Brex, PitchBook, DealCloud, Salesforce Commerce Cloud, Amazon SP-API, Ahrefs, Bright Data, etc."
+    },
+    {
+      "headline": "Only 9 of 100 apps have an official MCP server \u2014 but they're the gold standards (Slack, Stripe, GitHub, Notion, Shopify, Linear, Firecrawl, Apify, Devin).",
+      "detail": "31 more have community-built MCPs. 60 apps have no MCP at all today \u2192 biggest green-field opportunity for Composio."
+    },
+    {
+      "headline": "The most common blocker is enterprise sales / partnership gating \u2014 not technical.",
+      "detail": "Of 22 buildable-gated apps, the dominant blocker is enterprise sales / partnership (8 apps), then app review/approval (4), then paid plan (6)."
+    },
+    {
+      "headline": "Easy wins: 60 apps are buildable today with no MCP \u2014 ship a wrapper for these first.",
+      "detail": "Top easy-win clusters: Helpdesk (Freshdesk, Front, Gorgias, Help Scout, LiveAgent), PM (Asana, ClickUp, Coda, Monday, Smartsheet, Harvest), Dev/Infra (Vercel, Netlify, Cloudflare, Sentry, Datadog, MongoDB Atlas), CRM (Pipedrive, Close, Copper, Attio, Zoho)."
+    }
+  ]
+}

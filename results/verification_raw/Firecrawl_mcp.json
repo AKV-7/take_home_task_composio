@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://github.com/firecrawl/firecrawl-mcp-server",
+    "name": "Official Firecrawl MCP Server - Adds powerful web scraping  - GitHub",
+    "snippet": "Model Context Protocol (MCP) server that brings Firecrawl to MCP-compatible AI agents — search, scrape, and interact with the live web for clean, agent-ready  ...",
+    "host_name": "github.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "name": "What is the Model Context Protocol (MCP)? - Model Context Protocol",
+    "snippet": "MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Using MCP, AI applications like Claude or ChatGPT ...",
+    "host_name": "modelcontextprotocol.io",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://ai.sulat.com/firecrawl-for-ai-agents-skills-vs-mcp-servers-for-web-scraping-051b701b28f9",
+    "name": "Firecrawl for AI agents: skills vs MCP servers for web scraping",
+    "snippet": "The MCP server approach: A traditional Model Context Protocol integration that exposes Firecrawl's capabilities as tools your AI agent can call ...",
+    "host_name": "ai.sulat.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.firecrawl.dev/use-cases/ai-mcps",
+    "name": "Live Web Data for AI Agents | Firecrawl MCP for Claude Code",
+    "snippet": "Discover the top 15 Model Context Protocol servers for building AI agents in Cursor, Claude Code, and Windsurf. Complete with installation guides and use cases.",
+    "host_name": "www.firecrawl.dev",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.aimcp.info/en/g/bde63f9a-3c76-4b8c-96ce-b951c5970b26",
+    "name": "firecrawl-mcp-server - MCP Hub | Model Context Protocol Hub",
+    "snippet": "This is a Model Context Protocol (MCP) server implementation that integrates with Firecrawl to provide web scraping, crawling, and content extraction ...",
+    "host_name": "www.aimcp.info",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol - Anthropic",
+    "snippet": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.",
+    "host_name": "www.anthropic.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

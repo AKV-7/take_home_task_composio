@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.ramp.com/developer-api/v1/authorization",
+    "name": "Authorization — Ramp API docs",
+    "snippet": "Ramp uses OAuth 2.0 for secure API access, providing granular permission control through scopes and supporting multiple authorization flows for different use ...",
+    "host_name": "docs.ramp.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://support.ramp.com/accessing-the-developer-api",
+    "name": "Ramp Developer API overview",
+    "snippet": "This help article explains what the API is, how to get started within the Ramp app, and where to find full technical documentation and real-time assistance.",
+    "host_name": "support.ramp.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/tools/skills/ramp-api-authentication",
+    "name": "Ramp API Authentication & OAuth2 - Claude Code Skill - MCP Market",
+    "snippet": "Automates the setup and verification of Ramp API authentication using the OAuth2 client credentials flow for fintech integrations. Missing: docs | Show results with: docs",
+    "host_name": "mcpmarket.com",
+    "rank": 2,
+    "date": "Jul 5, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.ramp.com/developer-api/v1/api/authorization",
+    "name": "Authorization - Ramp API docs",
+    "snippet": "Authorization Create a token Permanent. This request can create, update, or delete data in your Ramp account.",
+    "host_name": "docs.ramp.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://composio.dev/auth/ramp",
+    "name": "How to configure OAuth credentials for Ramp and configure it in Composio",
+    "snippet": "This guide walks you through the complete process of registering a Ramp OAuth app in the Ramp Developer portal and connecting it to Composio using your own ...",
+    "host_name": "composio.dev",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.ramp.com/developer-api/v1/build-with-ramp",
+    "name": "Partner Integrations — Ramp API docs",
+    "snippet": "Implement OAuth2 Authorization Code Flow. Build the OAuth2 handoff to authenticate customers - see Authorization Code Flow guide. Test end-to-end flows in ...",
+    "host_name": "docs.ramp.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

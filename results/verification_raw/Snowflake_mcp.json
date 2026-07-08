@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.snowflake.com/en/blog/mcp-servers-unify-extend-data-agents",
+    "name": "MCP Servers on Snowflake Unify and Extend Data Agents",
+    "snippet": "In 2024, Anthropic open sourced the Model Context Protocol (MCP), a standard that enables AI agents to securely interact with enterprise ...",
+    "host_name": "www.snowflake.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/Snowflake-Labs/mcp",
+    "name": "MCP Server for Snowflake including Cortex AI, object management, SQL",
+    "snippet": "[DEPRECATED] Snowflake Cortex AI Model Context Protocol (MCP) Server ... This project is deprecated and no longer maintained. Please migrate to the official ...\nThe MCP server uses the Snowflake Python Connector for all authentication and connection methods. Please refer to the official Snowflake documentation for comprehensive authentication options and best practices.",
+    "host_name": "github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/snowflake/model-context-protocol-claude-and-snowflake-9f1e37775d80",
+    "name": "Model Context Protocol, Claude, and Snowflake | by Peter Beck - Medium",
+    "snippet": "Model Context Protocol (MCP) promises to ease the connection between LLMs and the services and data sources we use every day.",
+    "host_name": "medium.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-mcp-server",
+    "name": "Getting Started with Managed Snowflake MCP Server",
+    "snippet": "The Snowflake MCP Server includes Cortex Analyst and Cortex Search as tools on the standards-based interface. It is now available with Model Context Protocol ( ...\nThe Snowflake MCP Server includes Cortex Analyst and Cortex Search as tools on the standards-based interface. It is now available with Model Context Protocol (MCP) so that AI Agents can discover and invoke tools (Cortex Analyst, Cortex Search) via a unified and standard based interface.",
+    "host_name": "www.snowflake.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpservers.org/servers/sgriffin-magnoliacap/mcp-snowflake-server-readonly",
+    "name": "Snowflake MCP Server",
+    "snippet": "Overview. A Model Context Protocol (MCP) server implementation that provides database interaction with Snowflake. This server enables running SQL queries via ...",
+    "host_name": "mcpservers.org",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.snowflake.com/en/blog/managed-mcp-servers-secure-data-agents",
+    "name": "Introducing Snowflake Managed MCP Servers for Secure, Governed Data",
+    "snippet": "We are excited to announce the availability of Snowflake's managed Model Context Protocol (MCP) servers in public preview, giving AI agents ...",
+    "host_name": "www.snowflake.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

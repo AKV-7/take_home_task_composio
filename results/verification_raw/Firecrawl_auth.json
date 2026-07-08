@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.firecrawl.dev/api-reference/introduction",
+    "name": "Introduction - Firecrawl Docs",
+    "snippet": "For authentication, it's required to include an Authorization header. The header should contain Bearer fc-123456789 , where fc-123456789 represents your API Key ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.firecrawl.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction",
+    "name": "Introduction - Firecrawl Docs",
+    "snippet": "The Firecrawl API gives you programmatic access to web data. All endpoints share a common base URL, authentication scheme, and response format described on this ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.firecrawl.dev",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.firecrawl.dev/partner-integration",
+    "name": "Partner Integration API - Firecrawl Docs",
+    "snippet": "The Firecrawl Partner Integration API allows approved partners to create and manage Firecrawl API keys for their users directly from within their own platform. Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "docs.firecrawl.dev",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/firecrawl/skills/blob/main/skills/firecrawl-build-onboarding/references/auth-flow.md",
+    "name": "auth-flow.md - firecrawl-build-onboarding - GitHub",
+    "snippet": "The user completes the browser authorization flow. If successful, the API key becomes available through the polling endpoint. Step 3: Poll for completion.",
+    "host_name": "github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.firecrawl.dev",
+    "name": "Firecrawl - The context API to search, scrape, and interact with the web at",
+    "snippet": "Firecrawl is the context API to search, scrape, and interact with the web at scale. Turn any source into clean Markdown or structured data your agents can ... Missing: OAuth2 | Show results with: OAuth2",
+    "host_name": "www.firecrawl.dev",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.arcade.dev/en/resources/integrations/development/firecrawl",
+    "name": "Firecrawl | Arcade Docs",
+    "snippet": "No OAuth authentication is required. An API key is utilized for accessing the Firecrawl API. Secrets. API Key: FIRECRAWL_API_KEY, used for ...",
+    "host_name": "docs.arcade.dev",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

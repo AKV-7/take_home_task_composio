@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://github.com/jay-trivedi/amazon_sp_mcp",
+    "name": "Model Context Protocol (MCP) server for Amazon Seller Central",
+    "snippet": "A Model Context Protocol (MCP) server that provides AI agents with access to Amazon Seller Central data through the Amazon Selling Partner API (SP-API).",
+    "host_name": "github.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.aws.amazon.com/marketplace/latest/developerguide/marketplace-mcp-server.html",
+    "name": "About the AWS Marketplace MCP server",
+    "snippet": "Integration guide · Tool details · Workflows",
+    "host_name": "docs.aws.amazon.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=G7RAXlklQV4",
+    "name": "How to Use Amazon's Official SP-API MCP (2026 Tutorial) - YouTube",
+    "snippet": "7-day free trial. Amazon just shipped an official MCP server for the Selling Partner ... Model Context Protocol (MCP) Explained for ...",
+    "host_name": "www.youtube.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/server/amazon-seller-central",
+    "name": "Amazon Seller Central: AI Agent Access to SP-API Data & Insights",
+    "snippet": "The Amazon Seller Central tool functions as a Model Context Protocol (MCP) server, enabling AI agents to seamlessly interact with Amazon Seller Central.",
+    "host_name": "mcpmarket.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://aws.amazon.com/blogs/machine-learning/unlocking-the-power-of-model-context-protocol-mcp-on-aws",
+    "name": "Unlocking the power of Model Context Protocol (MCP) on AWS",
+    "snippet": "The MCP is an open standard that creates a universal language for AI systems to communicate with external data sources, tools, and services.",
+    "host_name": "aws.amazon.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://lobehub.com/mcp/sakshsiw-sellerbridge",
+    "name": "SP-API MCP Server Documentation | MC - LobeHub",
+    "snippet": "This document describes the Model Context Protocol (MCP) server for interacting with Amazon's Selling Partner API through natural language.",
+    "host_name": "lobehub.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

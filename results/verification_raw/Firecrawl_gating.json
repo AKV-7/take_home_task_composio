@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.firecrawl.dev/pricing",
+    "name": "Pricing - Firecrawl",
+    "snippet": "Flexible, usage-based pricing for Firecrawl. Search, scrape, crawl, and interact with the web at scale. Free tier available, pay-as-you-go credits, ...\nFlexible, usage-based pricing for Firecrawl. Search, scrape, crawl, and interact with the web at scale. Free tier available, pay-as-you-go credits, and custom enterprise plans.",
+    "host_name": "www.firecrawl.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.firecrawl.dev",
+    "name": "Firecrawl - The context API to search, scrape, and interact with the",
+    "snippet": "Search costs 2 credits per 10 results. Interact costs 2 credits per browser minute. Agent is in preview with 5 free daily runs and dynamic pricing. Advanced ...",
+    "host_name": "www.firecrawl.dev",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.firecrawl.dev/glossary/web-search-apis/search-apis-free-tiers-testing",
+    "name": "Do search APIs offer free tiers for testing? | Firecrawl Glossary",
+    "snippet": "Yes, most search APIs offer free tiers for testing with limits typically ranging from 500-5000 queries per month. Free tiers include core ...",
+    "host_name": "www.firecrawl.dev",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://thunderbit.com/blog/firecrawl-review-and-alternatives",
+    "name": "Firecrawl Review: Costs, Limits, and What I'd Use Instead - Thunderbit",
+    "snippet": "The free plan's 500 credits are one-time, not monthly — a detail many users miss until they've burned through them in a single test session. And ...",
+    "host_name": "thunderbit.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.firecrawl.dev/alternatives/firecrawl-vs-browser-use",
+    "name": "Firecrawl vs Browser Use",
+    "snippet": "Firecrawl charges one credit per scrape with plans from $83/mo for 100k credits. Browser Use bills per agent step (LLM cost), plus task initialization, browser ...",
+    "host_name": "www.firecrawl.dev",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://dev.to/apify/firecrawl-vs-apify-2025-guide-for-ai-and-data-teams-42e3",
+    "name": "Firecrawl vs. Apify: 2025 guide for AI and data teams",
+    "snippet": "That makes it very easy to predict costs. The free tier lets you scrape up to 500 pages before committing financially (no credit card required).",
+    "host_name": "dev.to",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

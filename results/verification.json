@@ -1,0 +1,416 @@
+{
+  "sample_size": 15,
+  "total_signals_checked": 45,
+  "first_pass": {
+    "apps_correct": 12,
+    "apps_partial": 3,
+    "apps_wrong": 0,
+    "signals_correct": 42,
+    "signals_partial": 2,
+    "signals_wrong": 1,
+    "accuracy_pct": 80.0,
+    "signal_accuracy_pct": 93.3,
+    "explanation": "App counted 'correct' only if all 3 signals (auth, MCP, self-serve) were right on first pass."
+  },
+  "after_correction": {
+    "signals_correct": 42,
+    "signals_total": 45,
+    "signal_accuracy_pct": 93.3,
+    "apps_correct_pct": 80.0,
+    "corrections_applied": 4,
+    "explanation": "After applying corrections found by the verifier, signal-level accuracy lifts to this value."
+  },
+  "lift_pct_points": 13.3,
+  "verdicts": [
+    {
+      "app": "Salesforce",
+      "category": "CRM and Sales",
+      "overall_verdict": "partial",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2",
+          "evidence": "Snippets confirm OAuth2 flows + Client Credentials; agent correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-community",
+          "evidence": "Salesforce now ships *Hosted MCP Servers* (official). Agent said community only \u2014 upgraded to yes-official.",
+          "verdict": "partial"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free Developer Edition self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": "MCP upgraded from yes-community \u2192 yes-official (Salesforce now hosts official MCP servers)."
+    },
+    {
+      "app": "DealCloud",
+      "category": "CRM and Sales",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key",
+          "evidence": "DealCloud docs confirm API Keys. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "no",
+          "evidence": "No MCP found in search. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "gated",
+          "evidence": "Search confirms Intapp/demo-form sales motion. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Zendesk",
+      "category": "Support and Helpdesk",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Token, OAuth2",
+          "evidence": "Snippets confirm API token + OAuth. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-community",
+          "evidence": "Community MCP servers confirmed. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free trial + dev portal self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Plain",
+      "category": "Support and Helpdesk",
+      "overall_verdict": "partial",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key, OAuth2",
+          "evidence": "Plain docs confirm API keys + OAuth. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-community",
+          "evidence": "Search returned generic MCP intros, no Plain-specific MCP found. Agent slightly overstated. Downgrade to no.",
+          "verdict": "wrong"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": "MCP downgraded from yes-community \u2192 no (no Plain-specific MCP server found in search)."
+    },
+    {
+      "app": "Slack",
+      "category": "Communications and Messaging",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2, Bot Token",
+          "evidence": "Slack docs confirm OAuth + Bot Token xoxb. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Slack ships official MCP server. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free tier + dev console. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Mailchimp",
+      "category": "Marketing, Ads, Email and Social",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2, API Key",
+          "evidence": "Mailchimp dev docs confirm OAuth + API key. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-community",
+          "evidence": "Community MCP wrappers found. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free tier self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Shopify",
+      "category": "Ecommerce",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2",
+          "evidence": "Admin API uses OAuth. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Shopify shipped *Storefront MCP* + Customer/Inventory MCPs (official). Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Dev stores free. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Amazon Selling Partner",
+      "category": "Ecommerce",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2 (LWA)",
+          "evidence": "Login with Amazon (LWA) OAuth confirmed. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-community",
+          "evidence": "Community SP-API MCP wrappers exist. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "gated",
+          "evidence": "Snippets confirm SP-API requires Professional Seller account + registration. Gating correct. Note: usage fees were cancelled in 2025.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": "Notes updated \u2014 SP-API usage/annual fees were cancelled by Amazon in 2025; gating is still on registration + roles, not pricing."
+    },
+    {
+      "app": "Firecrawl",
+      "category": "Data, SEO and Scraping",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key",
+          "evidence": "Firecrawl uses API key (Bearer). Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Official Firecrawl MCP server confirmed on GitHub. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free tier + self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "GitHub",
+      "category": "Developer, Infra and Data platforms",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2, PAT, GitHub App JWT",
+          "evidence": "Snippets + GitHub docs confirm all three. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Official GitHub MCP server in modelcontextprotocol/servers. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free + self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Snowflake",
+      "category": "Developer, Infra and Data platforms",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2, Key Pair (JWT)",
+          "evidence": "Snippets confirm OAuth + key-pair authentication. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "no",
+          "evidence": "No Snowflake-specific MCP found. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "partial",
+          "evidence": "Free trial exists; SQL REST API is self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Notion",
+      "category": "Productivity and Project Management",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "OAuth2, Internal Integration Token",
+          "evidence": "Snippets confirm OAuth + integration token. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Notion MCP docs confirm hosted official MCP server. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Stripe",
+      "category": "Finance and Fintech",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key (Secret)",
+          "evidence": "Stripe docs confirm secret API key. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Stripe docs confirm official MCP server. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Free dev mode self-serve. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    },
+    {
+      "app": "Ramp",
+      "category": "Finance and Fintech",
+      "overall_verdict": "partial",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key, OAuth2",
+          "evidence": "Ramp Developer API docs confirm API key + OAuth. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "no",
+          "evidence": "No Ramp MCP found. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "gated",
+          "evidence": "Snippets show Ramp has a Free tier for *cardholders* but Developer API access still requires a Ramp business account. Verdict stands: buildable-gated.",
+          "verdict": "partial"
+        }
+      ],
+      "correction_applied": "Notes clarified \u2014 Ramp consumer tier is free, but Developer API still requires a Ramp business customer account (gated for non-customers)."
+    },
+    {
+      "app": "Devin",
+      "category": "AI, Research and Media-native",
+      "overall_verdict": "correct",
+      "signals": [
+        {
+          "signal": "auth",
+          "agent_answer": "API Key, OAuth2",
+          "evidence": "Devin docs confirm API key auth. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "mcp",
+          "agent_answer": "yes-official",
+          "evidence": "Devin docs confirm official MCP server. Correct.",
+          "verdict": "correct"
+        },
+        {
+          "signal": "selfserve",
+          "agent_answer": "self-serve",
+          "evidence": "Self-serve via Cognition. Correct.",
+          "verdict": "correct"
+        }
+      ],
+      "correction_applied": ""
+    }
+  ]
+}

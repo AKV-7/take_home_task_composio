@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://stripe.com/pricing",
+    "name": "Pricing & Fees - Stripe",
+    "snippet": "Find Stripe fees and pricing information. Find our processing fees for credit cards, pricing models and pay-as-you-go fees for businesses.",
+    "host_name": "stripe.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stripe.com/resources/more/growth-pricing-101-what-it-is-and-how-to-make-it-work",
+    "name": "Growth pricing strategy: How to make it work - Stripe",
+    "snippet": "Freemium: A free tier with limited features. Trial-based: A full-featured product that's free for a set time. Discounted early access: Lower ...",
+    "host_name": "stripe.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/stripe/comments/x6yxc4/optimal_approach_to_implementing_a_freetier_in",
+    "name": "Optimal approach to implementing a free-tier in Stripe? - Reddit",
+    "snippet": "Idea 1: Associate a subscription with a $0 product representing the free-tier. Idea 2: Omit the free-tier entirely from Stripe and keep track of it within the ...",
+    "host_name": "www.reddit.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.stripe.com/products-prices/pricing-models",
+    "name": "Recurring pricing models - Stripe Documentation",
+    "snippet": "Learn about the pricing models you can use with subscriptions. ; Tiered, The unit cost changes with quantity (volume-based pricing) or usage (graduated pricing).",
+    "host_name": "docs.stripe.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://checkthat.ai/brands/stripe/pricing",
+    "name": "Stripe Pricing 2026: Plans, Costs & Hidden Fees - CheckThat.ai",
+    "snippet": "Stripe's pricing appears simple at 2.9% + $0.30 per transaction, but additional fees can push effective rates above 6%: international fees ...",
+    "host_name": "checkthat.ai",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://stripe.com/resources/more/plg-pricing-models",
+    "name": "A Guide to PLG Pricing Models - Billing - Stripe",
+    "snippet": "Tiered subscriptions. Tiered subscriptions divide self-serve upgrades into distinct plans, each mapped to a clear segment and use case. Tier ...",
+    "host_name": "stripe.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

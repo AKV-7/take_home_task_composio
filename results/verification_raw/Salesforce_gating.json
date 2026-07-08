@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://www.salesforce.com/ap/pricing",
+    "name": "See Pricing Plans for All Salesforce Products",
+    "snippet": "From our popular sales and CRM products to Service Cloud, Marketing Cloud Account Engagement, Salesforce Anywhere and Einstein, this page allows you to ... Missing: self | Show results with: self",
+    "host_name": "www.salesforce.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developer.salesforce.com/free-trials",
+    "name": "free trial orgs - Salesforce Developers",
+    "snippet": "Featured Trial. Developer Edition. Salesforce. Build on Salesforce for free and get hands-on with Agentforce and Data 360. Get a Developer Edition. Missing: self | Show results with: self",
+    "host_name": "developer.salesforce.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.salesforce.com/ap/service/customer-self-service/pricing",
+    "name": "Customer Self-Service Software Pricing | Salesforce AP",
+    "snippet": "Learn more about our Customer Self-Service Software pricing and start building connected service with autonomous AI, self-service portals and help centres. Missing: tier | Show results with: tier",
+    "host_name": "www.salesforce.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/salesforce/comments/1oxevmz/what_is_everyones_opinion_of_sf_creating_a_free",
+    "name": "What is everyone's opinion of SF creating a free tier : r/salesforce",
+    "snippet": "It's not a free tier. It's a 2 license limited functionality trial. A developer org is more beneficial, no joke intended. Missing: self | Show results with: self",
+    "host_name": "www.reddit.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.apexhours.com/how-to-create-a-free-salesforce-developer-account",
+    "name": "How to create a free Salesforce Developer Account/org - Apex Hours",
+    "snippet": "Is Salesforce Developer Org Free? Yes, the Salesforce Developer Org is free of cost. It will give you a lifetime free developer account.",
+    "host_name": "www.apexhours.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://blog.enree.co/2025/11/zero-dollar-entry-what-salesforces-free-tier-means-for-small-teams-and-what-it-really-is",
+    "name": "Zero-Dollar Entry: What Salesforce's Free Tier Means for Small",
+    "snippet": "There is a Free Suite: $0 USD/user/month, no contract, no credit-card required, for up to 2 users; This Free Suite includes features such as ...",
+    "host_name": "blog.enree.co",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

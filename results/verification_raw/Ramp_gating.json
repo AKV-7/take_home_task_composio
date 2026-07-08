@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://ramp.com/pricing",
+    "name": "Ramp Pricing and Plans",
+    "snippet": "Whether you're a startup, global enterprise, or somewhere in between, Ramp is designed to save you time and money. AI-assisted. Free. $0/mo/user. Best for ...",
+    "host_name": "ramp.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://support.ramp.com/accessing-the-developer-api",
+    "name": "Ramp Developer API overview",
+    "snippet": "Ramp's Developer API allows teams to programmatically access Ramp data and build automations or integrations tailored to their workflows.",
+    "host_name": "support.ramp.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/Ramp/comments/1j6kkp7/ramp_free_tier_for_small_business",
+    "name": "Ramp free tier for small business - Reddit",
+    "snippet": "Ramp is pretty great. Free tier is more than enough for smaller businesses.",
+    "host_name": "www.reddit.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://workflowautomation.net/reviews/ramp",
+    "name": "Ramp Review 2025 - Features, Pricing & Alternatives",
+    "snippet": "The free tier includes fully functional corporate cards with 1.5% cashback, expense management, receipt matching, basic bill pay, reimbursements, and accounting ...",
+    "host_name": "workflowautomation.net",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.larrymyers.com/posts/the-free-tier-trap",
+    "name": "The Free Tier Trap - Larry Myers",
+    "snippet": "This is a trap (by design!), and you can pay for this choice many times over as a developer in time, frustration, and overall opportunity cost.",
+    "host_name": "www.larrymyers.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.ramp.com/developer-api/v1/build-with-ramp",
+    "name": "Partner Integrations — Ramp API docs",
+    "snippet": "Ramp does not charge fees or take a revenue share. Many integrations are free, while others charge for their services—the choice is yours. Best practices for ...",
+    "host_name": "docs.ramp.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

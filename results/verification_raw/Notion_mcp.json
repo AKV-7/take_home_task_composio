@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://developers.notion.com/guides/mcp/overview",
+    "name": "Notion MCP - Notion Docs",
+    "snippet": "Connect your AI tools to Notion using the Model Context Protocol (MCP), an ... MCP clients that connect to the remote MCP server to access our tools.",
+    "host_name": "developers.notion.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://developers.notion.com/guides/mcp/get-started-with-mcp",
+    "name": "Connecting to Notion MCP - Notion Docs",
+    "snippet": "This guide walks you through connecting your AI tool to Notion using the Model Context Protocol (MCP). Once connected, your tool can read and write to your ...",
+    "host_name": "developers.notion.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://github.com/suekou/mcp-notion-server",
+    "name": "suekou/mcp-notion-server - GitHub",
+    "snippet": "A Model Context Protocol server for connecting Notion to MCP-compatible clients - suekou/mcp-notion-server.",
+    "host_name": "github.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.notion.com/blog/notions-hosted-mcp-server-an-inside-look",
+    "name": "Notion's hosted MCP server: an inside look",
+    "snippet": "It provides context to large language models (LLMs) so they know when and how to use each of the tools a provider like Notion, Figma, or Stripe ...",
+    "host_name": "www.notion.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=bSBdBCXm0gQ",
+    "name": "Build a Notion MCP Server: Context Engineering Tutorial - YouTube",
+    "snippet": "... notion-mcp-agent • Notion integration token setup – https://www.notion.so/my-integrations • Model Context Protocol intro – https ...",
+    "host_name": "www.youtube.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://mcpmarket.com/businesses/notion",
+    "name": "Notion MCP Servers",
+    "snippet": "Integrates Notion into AI workflows through a Model Context Protocol (MCP) server, allowing AI agents to interact with Notion pages and databases. Productivity ...",
+    "host_name": "mcpmarket.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

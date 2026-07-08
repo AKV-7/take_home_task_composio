@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps",
+    "name": "Authorizing OAuth apps - GitHub Docs",
+    "snippet": "Device flow · Redirect URLs",
+    "host_name": "docs.github.com",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.github.com/v3/apps/oauth_applications",
+    "name": "REST API endpoints for OAuth authorizations - GitHub Docs",
+    "snippet": "Use the REST API to interact with OAuth apps and OAuth authorizations of GitHub Apps.",
+    "host_name": "docs.github.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app",
+    "name": "Creating an OAuth app - GitHub Docs",
+    "snippet": "You can create and register an OAuth app under your personal account or under any organization you have administrative access to.",
+    "host_name": "docs.github.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app",
+    "name": "Authenticating to the REST API with an OAuth app - GitHub Docs",
+    "snippet": "First, you'll need to register your application. Every registered OAuth app is assigned a unique Client ID and Client Secret. The client secret is used to get ...",
+    "host_name": "docs.github.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://insomnia.rest/blog/oauth2-github-api",
+    "name": "GitHub API Authentication using OAuth 2.0 - Insomnia",
+    "snippet": "This post walks through an example using OAuth 2.0 to authenticate and create a repository on GitHub using the GitHub API.",
+    "host_name": "insomnia.rest",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://docs.readme.com/ent/docs/setting-up-github-oauth",
+    "name": "Setting up GitHub OAuth 2.0 - ReadMe Docs",
+    "snippet": "2. Give ReadMe Client ID and Client Secret · 4. Modify User Object · 5. Deploy OAuth Code · 6. Enable OAuth.",
+    "host_name": "docs.readme.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]

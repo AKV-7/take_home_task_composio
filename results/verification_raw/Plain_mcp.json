@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "name": "What is the Model Context Protocol (MCP)? - Model Context Protocol",
+    "snippet": "MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Using MCP, AI applications like Claude or ...",
+    "host_name": "modelcontextprotocol.io",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.anthropic.com/news/model-context-protocol",
+    "name": "Introducing the Model Context Protocol - Anthropic",
+    "snippet": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools.",
+    "host_name": "www.anthropic.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=RhTiAOGwbYE",
+    "name": "Build Your First MCP Server and Client from Scratch (Free Labs)",
+    "snippet": "The secret is Model Context Protocol (MCP)! In this hands-on MCP tutorial, we will show you exactly how to build your first MCP Server that ...",
+    "host_name": "www.youtube.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://northflank.com/blog/how-to-build-and-deploy-a-model-context-protocol-mcp-server",
+    "name": "How to build and deploy a Model Context Protocol (MCP) server | Blog",
+    "snippet": "Make sure your client and server both support MCP's Streamable HTTP with SSE; otherwise use plain HTTP or a WS/SSE transport/gateway.",
+    "host_name": "northflank.com",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://medium.com/@kenzic/getting-started-build-a-model-context-protocol-server-9d0362363435",
+    "name": "Getting Started: Build a Model Context Protocol Server - Medium",
+    "snippet": "In this article, we'll walk through the basic steps of building a simple MCP server in JavaScript that will expose two tools for interacting with Hacker News.",
+    "host_name": "medium.com",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=tzrwxLNHtRY",
+    "name": "Model Context Protocol Clearly Explained | MCP Beyond the Hype",
+    "snippet": "This video contains a very simple explanation of MCP, also known as Model Context Protocol. We will first understand what exactly is MCP and ...",
+    "host_name": "www.youtube.com",
+    "rank": 5,
+    "date": "",
+    "favicon": ""
+  }
+]
